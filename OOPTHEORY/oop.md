@@ -29,7 +29,7 @@ Student is a class with data like:
 - age
 - roll number
 
--And methods like:
+And methods like:
 
 - study()
 - giveExam()
@@ -294,7 +294,8 @@ Pratibha is taking the exam
 The Student class defines the data (name, age) and the method (takeExam()).
 The object s1 is created from the Student class. It stores the actual data and uses the takeExam() method to perform the action.
 
-**Key Point:**Class = Blueprint, Object = Actual instance created from the blueprint.
+### Key Point :
+Class = Blueprint, Object = Actual instance created from the blueprint.
 
 ---
 
@@ -539,20 +540,20 @@ void display()
 
 ## Q3. Can different objects of the same class have different values?
 Yes.
-
+```cpp
 s1.age = 20;
 s2.age = 21;
-
+```
 Both belong to the same class but contain different data.
 
 ---
 
 ## Q4. How do you access public members of a class?
 Using the dot operator (.).
-
+```cpp
 s1.name;
 s1.display();
-
+```
 ---
 
 ## 11.Types of Access Specifiers
@@ -741,14 +742,17 @@ int main()
 Name: Pratibha
 Age: 21
 
-***Explanation:*** Student() is the constructor of the Student class.
+### Explanation:
+ Student() is the constructor of the Student class.
 
 When we write:Student s1;
 
 the constructor is automatically called.
 
+```cpp 
 It initializes:name = "Pratibha";
                        age = 21;
+                       ```
  When we print s1.name and s1.age, we get the initialized values.
 
  ### Properties of Constructor
@@ -766,11 +770,6 @@ public:
 2. Constructor has no return type
 
  - Wrong:
-void Student()
-{
-}
-
- - Wrong:
  ```cpp
 int Student()
 {
@@ -783,8 +782,9 @@ Student()
 }
 ```
 3. Constructor is automatically called
-
+```cpp
 Student s1;
+```
 You don't need to write:s1.Student();
 
 The constructor is automatically called when s1 is created.
@@ -815,7 +815,8 @@ Types of Constructors in OOP:
 4. Copy Constructor
 - Shallow Copy
 - Deep Copy
-**Note:** Copy Constructor is available in C++ but not in Java.
+### Note:
+ Copy Constructor is available in C++ but not in Java.
 
 ---
 
@@ -870,10 +871,12 @@ int main()
     return 0;
 }
 ```
-**OUTPUT:**Brand: Unknown
-           Speed: 0
+### OUTPUT:
+Brand: Unknown
+Speed: 0
 
-### Note: #### Compiler-Provided Default Constructor
+### Note:
+- Compiler-Provided Default Constructor
 If you do not write any constructor in your class, C++ can provide a default constructor automatically.
 
 ### Example:
@@ -950,8 +953,9 @@ int main()
     return 0;
 }
 ```
-**OUTPUT:**Name: Pratibha
-           Age: 21
+### OUTPUT:
+Name: Pratibha
+Age: 21
 
 ### Explanation:
 
