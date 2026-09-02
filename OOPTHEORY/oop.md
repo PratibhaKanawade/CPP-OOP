@@ -1,28 +1,28 @@
-## Object-Oriented Programming (OOP) – Interview Questions & Answers
+# Object-Oriented Programming (OOP) – Interview Questions & Answers
  ---
-# 1. What is Object-Oriented Programming (OOP)? Explain with Example.#
-** Answer:**
+## 1. What is Object-Oriented Programming (OOP)? Explain with Example.
+### Answer:
 Object-Oriented Programming (OOP) is a way of writing programs using classes and objects. It represents real-world entities as objects.
 
 A class is a blueprint that contains data (variables) and methods (functions). An object is an instance of a class.
 
 We can create multiple objects from a single class. Each object has its own copy of data but shares the same methods.
 
-** OOP is based on four main pillars: **
+#### OOP is based on four main pillars: 
 
 - Encapsulation
 - Abstraction
 - Inheritance
 - Polymorphism
 
-** OOP improves: **
+####  OOP improves: 
 
 - Code reusability
 - Modularity
 - Security
 - Maintainability
 
-** Example:**
+#### Example:
 Student is a class with data like:
 
 - name
@@ -42,9 +42,10 @@ We can create multiple objects like:
 Each object will have its own data but share the same methods.
 ---
 
-# 2. What are the Advantages and Disadvantages of Object-Oriented Programming (OOP)?**
-** Answer:**
-** Advantages of OOP:**
+## 2. What are the Advantages and Disadvantages of Object-Oriented Programming (OOP)?
+### Answer:
+
+### Advantages of OOP:
 
 - Easy to Manage and Maintain – The program is divided into classes, making it easier to manage, update, and maintain.
 
@@ -56,7 +57,7 @@ Each object will have its own data but share the same methods.
 
 - Security – Achieved using encapsulation, which hides internal data and restricts direct access.
 
-** Disadvantages of OOP:**
+### Disadvantages of OOP:
 
 - Complex for Beginners – Concepts like class, object, inheritance, and polymorphism can be difficult to understand.
 
@@ -69,9 +70,9 @@ Each object will have its own data but share the same methods.
 - Time-Consuming Development – Proper design and planning are required.
 ---
 
-**3. What are some commonly used Object-Oriented Programming (OOP) languages?**
-**Answer:**
-Some commonly used object-oriented programming languages are:
+## 3. What are some commonly used Object-Oriented Programming (OOP) languages?
+### Answer:
+#### Some commonly used object-oriented programming languages are:
 
 - C++
 - Java
@@ -81,7 +82,7 @@ Some commonly used object-oriented programming languages are:
 - Swift
 - PHP
 
-These languages support OOP concepts like:
+#### These languages support OOP concepts like:
 
 - Encapsulation
 - Inheritance
@@ -89,8 +90,8 @@ These languages support OOP concepts like:
 - Abstraction
 ---
 
-**4. List the features of Object-Oriented Programming (OOP).**
-**Answer:**
+## 4. List the features of Object-Oriented Programming (OOP).
+### Answer:
 - Class and Object – Basic concepts of OOP used to represent real-world entities.
 
 - Inheritance – Provides reusability and avoids code duplication.
@@ -102,10 +103,10 @@ These languages support OOP concepts like:
 - Abstraction – Hides internal implementation details and shows only essential information to the user.
 ---
 
-**5. Difference between Procedure-Oriented Programming (POP) and Object-Oriented Programming (OOP)**
-**Answer:**
+## 5. Difference between Procedure-Oriented Programming (POP) and Object-Oriented Programming (OOP)
+### Answer:
 
-**Procedural-Oriented Programming (POP) – Theory**
+#### Procedural-Oriented Programming (POP) – Theory
 
 - Everything is mainly based on functions.
 - The program is divided into multiple functions, which are executed step by step.
@@ -126,7 +127,7 @@ Pour the tea
 - There is less data hiding compared with OOP.
 - Key Point:In POP, data and functions are generally independent of each other.
 
-**Procedural-Oriented Programming (POP) – C++ Example**
+#### Procedural-Oriented Programming (POP) – C++ Example
 #include <iostream>
 using namespace std;
 
@@ -144,13 +145,13 @@ int main()
 
     return 0;
 }
-**Output:**
+### Output:
 Pratibha scored 90
 
 **Explanation:** Data (name and marks) is separate from the method (display). No objects are created. Any function can access the data directly.
 ---
 
-**Object-Oriented Programming (OOP) – Theory**
+#### Object-Oriented Programming (OOP) – Theory
 
 - Programs are written using classes and objects, representing real-world entities.
 - Classes define data and functions, while objects represent actual instances containing their own data.
@@ -168,7 +169,7 @@ Student s3
 
 Each object can have its own data.
 
--Main pillars:
+#### Main pillars:
 1. Encapsulation
 2. Inheritance
 3. Polymorphism
@@ -180,7 +181,7 @@ Each object can have its own data.
 - Improves data hiding and abstraction.
 - Key Point:In OOP, related data and functions are grouped together inside classes, and objects are used to work with them.
 
-**Object-Oriented Programming (OOP) – C++ Example**
+#### Object-Oriented Programming (OOP) – C++ Example
 #include <iostream>
 using namespace std;
 
@@ -204,14 +205,14 @@ int main()
 
     return 0;
 }
-**Output:**
+### Output:
 Pratibha scored 90
 
 **Explaination:**Data and methods are together inside the Student class. Object s1 is created from the class and uses the display() method to access its data. Since the data members are public, they can be accessed directly through the object.
 ---
 
-**6. Explain the concept of Class with example**
-**Answer:**
+## 6. Explain the concept of Class with example
+### Answer:
 
 A class is a user-defined data type that is used to group related data and methods together under a single unit called a class.
 
@@ -221,28 +222,28 @@ We can create multiple objects from the same class.
 
 Each object uses the data and methods defined in its class.
 
-**Example:**
+#### Example:
 Suppose we have a Student class:
 
-**Data:**
+##### Data:
 - name
 - age
 - rollNo
 
-**Methods:**
+##### Methods:
 - giveExam()
 - display()
 
 The class is used to define the data and methods. Objects created from the class store their own actual data and use the methods defined in the class.
 
-**Syntax:**
+### Syntax:
 class ClassName
 {
     // Data members
     // Member functions
 };
 
-**Code Example:**
+#### Code Example:
 #include <iostream>
 using namespace std;
 
@@ -270,20 +271,20 @@ int main()
     return 0;
 }
 
-**Output:**
+### Output:
 Pratibha is taking the exam
 
-**Explanation:**
+### Explanation:
 The Student class defines the data (name, age) and the method (takeExam()).
 The object s1 is created from the Student class. It stores the actual data and uses the takeExam() method to perform the action.
 
 **Key Point:**Class = Blueprint, Object = Actual instance created from the blueprint.
 ---
 
-**7. What is the Syntax of Creating a Class?**
-**Answer:**
+## 7. What is the Syntax of Creating a Class?
+### Answer:
 
-**Syntax:**
+### Syntax:
 class ClassName
 {
     // Data members
@@ -292,7 +293,7 @@ class ClassName
 
 **Note:** In C++, access specifiers such as public, private, and protected are written inside the class.
 
-**Example:**
+### Example:
 #include <iostream>
 using namespace std;
 
@@ -308,7 +309,7 @@ public:
     }
 };
 
-**Explanation:**
+### Explanation:
 - class Student → declares a class named Student.
 - public: → makes the following members accessible from outside the class.
 - string name; and int age; → data members.
@@ -316,8 +317,8 @@ public:
 - }; → ends the class definition. The semicolon is required.
 ---
 
-**8. Explain the Concept of Object with Example**
-**Answer:**
+## 8. Explain the Concept of Object with Example
+### Answer:
 
 An object is an instance of a class that is used to store actual data defined by the class and to use its member functions.
 
@@ -325,43 +326,43 @@ We can create multiple objects of the same class.
 
 Each object has its own data, but all objects use the member functions defined in their class.
 
-**Example:**
+#### Example:
 
 Suppose we have a Car class:
 
-**Data:**
+##### Data:
 - name
 - color
 
-**Methods:**
+##### Methods:
 - speed()
 - drive()
 
 We can create multiple objects from the Car class.
 
-**Object 1:**
+##### Object 1:
 name: Tesla
 color: Red
 Methods: speed(), drive()
 
-1**Object 2:**
+##### Object 2:
 name: Rolls Royce
 color: White
 Methods: speed(), drive()
 
 Each object stores its own data, but both objects use the methods defined in the Car class.
 
-**Syntax:**
+### Syntax:
 ClassName objectName;
 
-**Example:**
+#### Example:
 Car car1;
 
 Here:
 Car  → Class
 car1 → Object
 
-**Code Example:**
+#### Code Example:
 #include <iostream>
 using namespace std;
 
@@ -403,13 +404,13 @@ int main()
     return 0;
 }
 
-**Output:**
+### Output:
 Tesla is driving
 Tesla is running fast
 Rolls Royce is driving
 Rolls Royce is running fast
 
-**Explanation:**
+### Explanation:
 Car is the class that defines the data (name, color) and methods (drive(), speed()).
 
 car1 and car2 are objects of the Car class. Each object stores its own data.
@@ -426,15 +427,15 @@ color → White
 
 Both objects use the same methods defined in the Car class to perform their actions.
 
-**Key Point:**
+### Key Point:
 Class = Blueprint, Object = Actual instance of the class.
 ---
 
-**9. What is the Syntax of Creating an Object?**
-**Syntax:**
+## 9. What is the Syntax of Creating an Object?
+### Syntax:
 ClassName objectName;
 
-**Explanation:**
+### Explanation:
 
 - ClassName – the name of the class for which you want to create an object.
 
@@ -442,7 +443,7 @@ ClassName objectName;
 
 - ; – statement terminator.
 
-**Accessing Object Members:**
+#### Accessing Object Members:
 
 To access a data member:
 objectName.variableName;
@@ -450,7 +451,7 @@ objectName.variableName;
 To access a member function:
 objectName.methodName();
 
-**Example:**
+#### Example:
 Student s1;
 
 s1.name = "Pratibha";       // Accessing data member
@@ -466,28 +467,22 @@ car1.drive();              // Accessing member function
 - The dot (.) operator is used to access public data members and member functions through an object.
 ---
 
-**10. Difference Between Class and Object in C++**
-**Answer:**
+## 10. Difference Between Class and Object in C++
+### Answer:
+| S.No. | Class                                                                                    | Object                                                                              |
+| :---: | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+|   1   | A class is a user-defined data type used to define data and methods under a single unit. | An object is an instance of a class used to store actual data defined in the class. |
+|   2   | **Syntax:** `class ClassName { data; methods; };`                                        | **Syntax:** `ClassName objectName;`                                                 |
+|   3   | A class defines data and methods; it does not store actual object data.                  | An object stores its own data and can use the class methods.                        |
+|   4   | A class is like a blueprint or template.                                                 | An object is a real instance created from the class blueprint.                      |
+|   5   | One class can be used to create multiple objects.                                        | Each object has its own copy of non-static data members.                            |
 
-S.No.	Class	                                                                                   Object
----
-1	   A class is a user-defined data type used to define                           An object is an instance of a class used to
-       data and methods under a single unit.	                                    store actual data defined in the class.
----
-2	   Syntax: class ClassName { data; methods; };	                                Syntax: ClassName objectName;
----
-3	   A class defines data and methods; it does not store                          An object stores its own data and can use
-       the actual data of individual objects.                         	            the methods defined in the class.
----
-4	   A class is like a blueprint or template.	                                    An object is a real instance created from the class blueprint.
----
-5	   One class can be used to create multiple objects.	                        Each object has its own copy of non-static data members.
 ---
 
-**Q1. What are data members?**
+## Q1. What are data members?
 Variables declared inside a class are called data members.
 
-**Example:**
+### Example:
 
 class Student
 {
@@ -499,10 +494,10 @@ public:
 name and age are data members.
 ---
 
-**Q2. What are member functions?**
+## Q2. What are member functions?
 Functions declared inside a class are called member functions.
 
-**Example:**
+### Example:
 
 void display()
 {
@@ -510,7 +505,7 @@ void display()
 }
 ---
 
-**Q3. Can different objects of the same class have different values?**
+## Q3. Can different objects of the same class have different values?
 Yes.
 
 s1.age = 20;
@@ -519,17 +514,18 @@ s2.age = 21;
 Both belong to the same class but contain different data.
 ---
 
-**Q4. How do you access public members of a class?**
+## Q4. How do you access public members of a class?
 Using the dot operator (.).
 
 s1.name;
 s1.display();
 ---
 
-**11.Types of Access Specifiers**
+## 11.Types of Access Specifiers
 
-**1.Public:**Public members can be accessed from anywhere using an object.
-**Example:**
+## 1.Public:
+Public members can be accessed from anywhere using an object.
+### Example:
 #include <iostream>
 using namespace std;
 
@@ -559,13 +555,15 @@ int main()
     return 0;
 }
 
-**OUTPUT:**Pratibha 21
+### OUTPUT:
+Pratibha 21
 ---
 
-**2.Private:**Private members can be accessed directly only inside the same class.
+## 2.Private:
+Private members can be accessed directly only inside the same class.
 
 They cannot be accessed directly using an object from outside the class.
-**Example:**
+### Example:
 #include <iostream>
 using namespace std;
 
@@ -598,12 +596,15 @@ int main()
     return 0;
 }
 
-**OUTPUT:**Marks: 90
+### OUTPUT:
+Marks: 90
 ---
 
-**3.Protected:**Protected members can be accessed inside the class and directly inside its derived (child) classes, but not directly
+## 3.Protected:
+Protected members can be accessed inside the class and directly inside its derived (child) classes, but not directly
  from outside using an object.
- **Example:**
+
+ ### Example:
  #include <iostream>
 using namespace std;
 
@@ -639,22 +640,23 @@ int main()
     return 0;
 }
 
-**OUTPUT:**Marks: 90
+### OUTPUT:
+Marks: 90
 ---
 
-**12.Explain what is constructor with example and syntax**
-**Answer:**
+## 12.Explain what is constructor with example and syntax
+### Answer:
 - A constructor is a special member function of a class that is automatically called when an object is created.
 
 - Its main purpose is to initialize the data members of an object.
 
 - Constructor = A special function that automatically runs when an object is created.
 
-**Example (Analogy):**
+### Example (Analogy):
 
 Buying a new phone is like creating an object: When you turn it on, it automatically asks for default settings like date, time, wallpaper, etc. You don't need to manually set these at the time of object creation — just like constructor automatically initializes object data.
 
-**Syntax:**
+### Syntax:
 
 class ClassName
 {
@@ -666,7 +668,7 @@ public:
     }
 };
 
-**Code Example:**
+### Code Example:
 #include <iostream>
 using namespace std;
 
@@ -694,10 +696,11 @@ int main()
     return 0;
 }
 
-**OUTPUT:**Name: Pratibha
-           Age: 21
+### OUTPUT:
+Name: Pratibha
+Age: 21
 
-**Explanation:**Student() is the constructor of the Student class.
+***Explanation:*** Student() is the constructor of the Student class.
 
 When we write:Student s1;
 
@@ -707,7 +710,7 @@ It initializes:name = "Pratibha";
                        age = 21;
  When we print s1.name and s1.age, we get the initialized values.
 
- **Properties of Constructor**
+ ### Properties of Constructor
 
 1. Constructor has the same name as the class
 
@@ -749,7 +752,7 @@ This is called constructor overloading.
 
 5. Constructors are mainly used for initialization
 
-For example:
+### For example:
 Student()
 {
     name = "Pratibha";
@@ -757,8 +760,8 @@ Student()
 }
 ---
 
- **13.List Types of Constructor in OOP**
-**Answer:**
+ ## 13.List Types of Constructor in OOP
+### Answer:
 Types of Constructors in OOP:
 
 1. Default Constructor
@@ -770,8 +773,8 @@ Types of Constructors in OOP:
 **Note:** Copy Constructor is available in C++ but not in Java.
 ---
 
-**14. Explain Default Constructor with Example**
-**Answer:**
+## 14. Explain Default Constructor with Example
+### Answer:
 
 - A default constructor is a constructor that does not take any arguments.
 
@@ -781,7 +784,7 @@ Types of Constructors in OOP:
 
 - Default Constructor = Constructor without parameters.
 
-**Syntax**
+### Syntax
 class ClassName
 {
 public:
@@ -792,7 +795,7 @@ public:
     }
 };
 
-**Example:**
+### Example:
 #include <iostream>
 using namespace std;
 
@@ -837,7 +840,7 @@ public:
 You can create:Student s1;
 ---
 
-**15.Constructor vs Default Constructor**
+## 15.Constructor vs Default Constructor
 | Constructor                                  | Default Constructor                            |
 | ------------------------------------------   | --------------------------------------------   |
 | - General term for a special member function | - A constructor with **no parameters**         |
@@ -846,13 +849,13 @@ You can create:Student s1;
 | - Example: `Student(int a)`                  | - Example: `Student()`                         |
 ---
 
-**16. Explain Parameterized Constructor with Example**
-**Answer:**
+## 16. Explain Parameterized Constructor with Example
+### Answer:
 - A parameterized constructor is a constructor that accepts parameters to initialize an object's data with specific values when the object is created.
 
 - Parameterized Constructor = Constructor that takes values while creating an object.
 
-**Syntax**
+### Syntax
 class ClassName
 {
 public:
@@ -862,7 +865,7 @@ public:
     }
 };
 
-**Example**
+### Example
 #include <iostream>
 using namespace std;
 
@@ -898,7 +901,7 @@ int main()
 **OUTPUT:**Name: Pratibha
            Age: 21
 
-**Explanation:**
+### Explanation:
 
 Student(string n, int a) is a parameterized constructor because it accepts two parameters.
 
@@ -908,17 +911,17 @@ When we create the object:Student s1("Pratibha", 21);
 21 is passed to a.
 ---
 
-**Q5. Why do we use a parameterized constructor?**
-**Answer:**
+## Q5. Why do we use a parameterized constructor?
+### Answer:
 We use a parameterized constructor to initialize objects with different values at the time of object creation.
 
-*Example:*
+#### Example:
 Student s1("Pratibha", 21);
 Student s2("Rahul", 22);
 ---
 
-**Q6. What is the difference between a default constructor and a parameterized constructor?**
-**Answer:**
+## Q6. What is the difference between a default constructor and a parameterized constructor?
+### Answer:
 | Default Constructor             | Parameterized Constructor        |
 | ------------------------------- | -------------------------------- |
 | - **Takes no parameters**         | - **Takes one or more parameters** |
@@ -926,11 +929,11 @@ Student s2("Rahul", 22);
 | - Initializes with default values | - Initializes with given values    |
 ---
 
-**Q7. Can a class have both default and parameterized constructors?**
-**Answer:**
+## Q7. Can a class have both default and parameterized constructors?
+### Answer:
 Yes. A class can have both(this is example of constructor overloading)
 
-*Example:*
+#### Example:
 class Student
 {
 public:
@@ -947,27 +950,27 @@ public:
 };
 ---
 
-**Q8. What happens if we have only a parameterized constructor and write this?**
+## Q8. What happens if we have only a parameterized constructor and write this?
 Student s1;
 
-**Answer:**
+### Answer:
 It gives a compilation error because there is no constructor that takes zero arguments.
 If you want:Student s1;
 you need a default constructor.
 ---
 
-**Q9. Can a parameterized constructor return a value?**
-**Answer:**
+## Q9. Can a parameterized constructor return a value?
+### Answer:
 No. Constructors do not have a return type, not even void.
 ---
 
-** 17. Explain Copy Constructor with Example **
-** Answer: **
+## 17. Explain Copy Constructor with Example 
+###  Answer: 
 - A copy constructor is a special constructor that creates a new object by copying the data of an existing object.
 
 - Copy Constructor = Creates a new object by copying another object's data.
 
-*Example:*
+#### Example:
 Suppose you have a Student record:
 Student s1
 Name = Pratibha
