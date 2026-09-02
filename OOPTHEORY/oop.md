@@ -131,6 +131,7 @@ Pour the tea
 - Key Point:In POP, data and functions are generally independent of each other.
 
 ### Procedural-Oriented Programming (POP) – C++ Example
+
 #include <iostream>
 using namespace std;
 
@@ -148,6 +149,7 @@ int main()
 
     return 0;
 }
+
 ### Output:
 Pratibha scored 90
 
@@ -186,6 +188,7 @@ Each object can have its own data.
 - Key Point:In OOP, related data and functions are grouped together inside classes, and objects are used to work with them.
 
 ### Object-Oriented Programming (OOP) – C++ Example
+
 #include <iostream>
 using namespace std;
 
@@ -209,10 +212,12 @@ int main()
 
     return 0;
 }
+
 ### Output:
 Pratibha scored 90
 
-**Explaination:**Data and methods are together inside the Student class. Object s1 is created from the class and uses the display() method to access its data. Since the data members are public, they can be accessed directly through the object.
+### Explaination:
+Data and methods are together inside the Student class. Object s1 is created from the class and uses the display() method to access its data. Since the data members are public, they can be accessed directly through the object.
 
 ---
 
