@@ -131,7 +131,7 @@ Pour the tea
 - Key Point:In POP, data and functions are generally independent of each other.
 
 ### Procedural-Oriented Programming (POP) – C++ Example
-
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -149,6 +149,7 @@ int main()
 
     return 0;
 }
+```
 
 ### Output:
 Pratibha scored 90
@@ -188,7 +189,7 @@ Each object can have its own data.
 - Key Point:In OOP, related data and functions are grouped together inside classes, and objects are used to work with them.
 
 ### Object-Oriented Programming (OOP) – C++ Example
-
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -212,6 +213,7 @@ int main()
 
     return 0;
 }
+```
 
 ### Output:
 Pratibha scored 90
@@ -247,11 +249,13 @@ Suppose we have a Student class:
 The class is used to define the data and methods. Objects created from the class store their own actual data and use the methods defined in the class.
 
 ### Syntax:
+```cpp
 class ClassName
 {
     // Data members
     // Member functions
 };
+```
 
 ### Code Example:
 ```cpp
@@ -298,15 +302,18 @@ The object s1 is created from the Student class. It stores the actual data and u
 ### Answer:
 
 ### Syntax:
+```cpp
 class ClassName
 {
     // Data members
     // Member functions
 };
-
-**Note:** In C++, access specifiers such as public, private, and protected are written inside the class.
+```
+### Note:
+ In C++, access specifiers such as public, private, and protected are written inside the class.
 
 ### Example:
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -321,6 +328,7 @@ public:
         cout << "Name: " << name << ", Age: " << age;
     }
 };
+```
 
 ### Explanation:
 - class Student → declares a class named Student.
@@ -377,6 +385,7 @@ Car  → Class
 car1 → Object
 
 ### Code Example:
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -417,6 +426,7 @@ int main()
 
     return 0;
 }
+```
 
 ### Output:
 Tesla is driving
@@ -467,6 +477,7 @@ To access a member function:
 objectName.methodName();
 
 ### Example:
+```cpp
 Student s1;
 
 s1.name = "Pratibha";       // Accessing data member
@@ -476,6 +487,7 @@ Car car1;
 
 car1.name = "Tesla";       // Accessing data member
 car1.drive();              // Accessing member function
+```
 
 - s1 is an object of the Student class.
 - car1 is an object of the Car class.
@@ -499,13 +511,14 @@ car1.drive();              // Accessing member function
 Variables declared inside a class are called data members.
 
 ### Example:
-
+```cpp
 class Student
 {
 public:
     string name;
     int age;
 };
+```
 
 name and age are data members.
 
@@ -515,11 +528,12 @@ name and age are data members.
 Functions declared inside a class are called member functions.
 
 ### Example:
-
+```cpp
 void display()
 {
     cout << "Hello";
 }
+```
 
 ---
 
@@ -546,6 +560,7 @@ s1.display();
 ## 1.Public:
 Public members can be accessed from anywhere using an object.
 ### Example:
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -574,7 +589,7 @@ int main()
 
     return 0;
 }
-
+```
 ### OUTPUT:
 Pratibha 21
 
@@ -585,6 +600,7 @@ Private members can be accessed directly only inside the same class.
 
 They cannot be accessed directly using an object from outside the class.
 ### Example:
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -616,7 +632,7 @@ int main()
 
     return 0;
 }
-
+```
 ### OUTPUT:
 Marks: 90
 
@@ -627,6 +643,7 @@ Protected members can be accessed inside the class and directly inside its deriv
  from outside using an object.
 
  ### Example:
+ ```cpp
  #include <iostream>
 using namespace std;
 
@@ -661,7 +678,7 @@ int main()
 
     return 0;
 }
-
+```
 ### OUTPUT:
 Marks: 90
 
@@ -680,7 +697,7 @@ Marks: 90
 Buying a new phone is like creating an object: When you turn it on, it automatically asks for default settings like date, time, wallpaper, etc. You don't need to manually set these at the time of object creation — just like constructor automatically initializes object data.
 
 ### Syntax:
-
+```cpp
 class ClassName
 {
 public:
@@ -690,8 +707,9 @@ public:
         // Initialization
     }
 };
-
+```
 ### Code Example:
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -718,7 +736,7 @@ int main()
 
     return 0;
 }
-
+```
 ### OUTPUT:
 Name: Pratibha
 Age: 21
@@ -736,7 +754,7 @@ It initializes:name = "Pratibha";
  ### Properties of Constructor
 
 1. Constructor has the same name as the class
-
+```cpp
 class Student
 {
 public:
@@ -744,7 +762,7 @@ public:
     {
     }
 };
-
+```
 2. Constructor has no return type
 
  - Wrong:
@@ -753,15 +771,17 @@ void Student()
 }
 
  - Wrong:
+ ```cpp
 int Student()
 {
 }
-
+```
 - Correct:
+```cpp
 Student()
 {
 }
-
+```
 3. Constructor is automatically called
 
 Student s1;
@@ -776,12 +796,13 @@ This is called constructor overloading.
 5. Constructors are mainly used for initialization
 
 ### For example:
+```cpp
 Student()
 {
     name = "Pratibha";
     age = 21;
 }
-
+```
 ---
 
  ## 13.List Types of Constructor in OOP
@@ -810,6 +831,7 @@ Types of Constructors in OOP:
 - Default Constructor = Constructor without parameters.
 
 ### Syntax
+```cpp
 class ClassName
 {
 public:
@@ -819,8 +841,9 @@ public:
         // Default values
     }
 };
-
+```
 ### Example:
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -846,22 +869,22 @@ int main()
 
     return 0;
 }
-
+```
 **OUTPUT:**Brand: Unknown
            Speed: 0
 
-**Note:** *Compiler-Provided Default Constructor*
+### Note: #### Compiler-Provided Default Constructor
 If you do not write any constructor in your class, C++ can provide a default constructor automatically.
 
-*Example:*
-
+### Example:
+```cpp
 class Student
 {
 public:
     string name;
     int age;
 };
-
+```
 You can create:Student s1;
 
 ---
@@ -873,6 +896,7 @@ You can create:Student s1;
 | - Used to initialize objects                 | - Used to initialize objects with no arguments |
 | - Can have parameters                        | - Does not have parameters                     |
 | - Example: `Student(int a)`                  | - Example: `Student()`                         |
+
 ---
 
 ## 16. Explain Parameterized Constructor with Example
@@ -882,6 +906,7 @@ You can create:Student s1;
 - Parameterized Constructor = Constructor that takes values while creating an object.
 
 ### Syntax
+```cpp
 class ClassName
 {
 public:
@@ -890,8 +915,9 @@ public:
         // Initialize data members
     }
 };
-
+```
 ### Example
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -923,7 +949,7 @@ int main()
 
     return 0;
 }
-
+```
 **OUTPUT:**Name: Pratibha
            Age: 21
 
@@ -963,6 +989,7 @@ Student s2("Rahul", 22);
 Yes. A class can have both(this is example of constructor overloading)
 
 ### Example:
+```cpp
 class Student
 {
 public:
@@ -977,7 +1004,7 @@ public:
         cout << "Parameterized Constructor";
     }
 };
-
+```
 ---
 
 ## Q8. What happens if we have only a parameterized constructor and write this?
