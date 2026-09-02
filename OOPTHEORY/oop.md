@@ -8,21 +8,21 @@ A class is a blueprint that contains data (variables) and methods (functions). A
 
 We can create multiple objects from a single class. Each object has its own copy of data but shares the same methods.
 
-#### OOP is based on four main pillars: 
+### OOP is based on four main pillars: 
 
 - Encapsulation
 - Abstraction
 - Inheritance
 - Polymorphism
 
-####  OOP improves: 
+### OOP improves: 
 
 - Code reusability
 - Modularity
 - Security
 - Maintainability
 
-#### Example:
+### Example:
 Student is a class with data like:
 
 - name
@@ -40,11 +40,11 @@ We can create multiple objects like:
 - student2
 
 Each object will have its own data but share the same methods.
+
 ---
 
 ## 2. What are the Advantages and Disadvantages of Object-Oriented Programming (OOP)?
 ### Answer:
-
 ### Advantages of OOP:
 
 - Easy to Manage and Maintain – The program is divided into classes, making it easier to manage, update, and maintain.
@@ -72,7 +72,7 @@ Each object will have its own data but share the same methods.
 
 ## 3. What are some commonly used Object-Oriented Programming (OOP) languages?
 ### Answer:
-#### Some commonly used object-oriented programming languages are:
+### Some commonly used object-oriented programming languages are:
 
 - C++
 - Java
@@ -82,7 +82,7 @@ Each object will have its own data but share the same methods.
 - Swift
 - PHP
 
-#### These languages support OOP concepts like:
+### These languages support OOP concepts like:
 
 - Encapsulation
 - Inheritance
@@ -106,7 +106,7 @@ Each object will have its own data but share the same methods.
 ## 5. Difference between Procedure-Oriented Programming (POP) and Object-Oriented Programming (OOP)
 ### Answer:
 
-#### Procedural-Oriented Programming (POP) – Theory
+### Procedural-Oriented Programming (POP) – Theory
 
 - Everything is mainly based on functions.
 - The program is divided into multiple functions, which are executed step by step.
@@ -127,7 +127,7 @@ Pour the tea
 - There is less data hiding compared with OOP.
 - Key Point:In POP, data and functions are generally independent of each other.
 
-#### Procedural-Oriented Programming (POP) – C++ Example
+### Procedural-Oriented Programming (POP) – C++ Example
 #include <iostream>
 using namespace std;
 
@@ -151,7 +151,7 @@ Pratibha scored 90
 **Explanation:** Data (name and marks) is separate from the method (display). No objects are created. Any function can access the data directly.
 ---
 
-#### Object-Oriented Programming (OOP) – Theory
+### Object-Oriented Programming (OOP) – Theory
 
 - Programs are written using classes and objects, representing real-world entities.
 - Classes define data and functions, while objects represent actual instances containing their own data.
@@ -169,7 +169,7 @@ Student s3
 
 Each object can have its own data.
 
-#### Main pillars:
+### Main pillars:
 1. Encapsulation
 2. Inheritance
 3. Polymorphism
@@ -181,7 +181,7 @@ Each object can have its own data.
 - Improves data hiding and abstraction.
 - Key Point:In OOP, related data and functions are grouped together inside classes, and objects are used to work with them.
 
-#### Object-Oriented Programming (OOP) – C++ Example
+### Object-Oriented Programming (OOP) – C++ Example
 #include <iostream>
 using namespace std;
 
@@ -222,15 +222,15 @@ We can create multiple objects from the same class.
 
 Each object uses the data and methods defined in its class.
 
-#### Example:
+### Example:
 Suppose we have a Student class:
 
-##### Data:
+#### Data:
 - name
 - age
 - rollNo
 
-##### Methods:
+#### Methods:
 - giveExam()
 - display()
 
@@ -243,7 +243,7 @@ class ClassName
     // Member functions
 };
 
-#### Code Example:
+### Code Example:
 #include <iostream>
 using namespace std;
 
@@ -326,26 +326,26 @@ We can create multiple objects of the same class.
 
 Each object has its own data, but all objects use the member functions defined in their class.
 
-#### Example:
+### Example:
 
 Suppose we have a Car class:
 
-##### Data:
+#### Data:
 - name
 - color
 
-##### Methods:
+#### Methods:
 - speed()
 - drive()
 
 We can create multiple objects from the Car class.
 
-##### Object 1:
+#### Object 1:
 name: Tesla
 color: Red
 Methods: speed(), drive()
 
-##### Object 2:
+#### Object 2:
 name: Rolls Royce
 color: White
 Methods: speed(), drive()
@@ -355,14 +355,14 @@ Each object stores its own data, but both objects use the methods defined in the
 ### Syntax:
 ClassName objectName;
 
-#### Example:
+### Example:
 Car car1;
 
 Here:
 Car  → Class
 car1 → Object
 
-#### Code Example:
+### Code Example:
 #include <iostream>
 using namespace std;
 
@@ -443,7 +443,7 @@ ClassName objectName;
 
 - ; – statement terminator.
 
-#### Accessing Object Members:
+### Accessing Object Members:
 
 To access a data member:
 objectName.variableName;
@@ -451,7 +451,7 @@ objectName.variableName;
 To access a member function:
 objectName.methodName();
 
-#### Example:
+### Example:
 Student s1;
 
 s1.name = "Pratibha";       // Accessing data member
@@ -915,7 +915,7 @@ When we create the object:Student s1("Pratibha", 21);
 ### Answer:
 We use a parameterized constructor to initialize objects with different values at the time of object creation.
 
-#### Example:
+### Example:
 Student s1("Pratibha", 21);
 Student s2("Rahul", 22);
 ---
@@ -933,7 +933,7 @@ Student s2("Rahul", 22);
 ### Answer:
 Yes. A class can have both(this is example of constructor overloading)
 
-#### Example:
+### Example:
 class Student
 {
 public:
@@ -970,7 +970,7 @@ No. Constructors do not have a return type, not even void.
 
 - Copy Constructor = Creates a new object by copying another object's data.
 
-#### Example:
+### Example:
 Suppose you have a Student record:
 Student s1
 Name = Pratibha
