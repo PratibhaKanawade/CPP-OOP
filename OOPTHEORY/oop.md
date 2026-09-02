@@ -254,6 +254,7 @@ class ClassName
 };
 
 ### Code Example:
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -280,6 +281,7 @@ int main()
 
     return 0;
 }
+```
 
 ### Output:
 Pratibha is taking the exam
