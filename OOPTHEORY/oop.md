@@ -739,8 +739,10 @@ int main()
 }
 ```
 ### OUTPUT:
+```cpp
 Name: Pratibha
 Age: 21
+```
 
 ### Explanation:
  Student() is the constructor of the Student class.
@@ -872,9 +874,10 @@ int main()
 }
 ```
 ### OUTPUT:
+```cpp
 Brand: Unknown
 Speed: 0
-
+```
 ### Note:
 - Compiler-Provided Default Constructor
 If you do not write any constructor in your class, C++ can provide a default constructor automatically.
@@ -954,8 +957,10 @@ int main()
 }
 ```
 ### OUTPUT:
+```cpp
 Name: Pratibha
 Age: 21
+```
 
 ### Explanation:
 
@@ -973,9 +978,10 @@ When we create the object:Student s1("Pratibha", 21);
 We use a parameterized constructor to initialize objects with different values at the time of object creation.
 
 ### Example:
+```cpp
 Student s1("Pratibha", 21);
 Student s2("Rahul", 22);
-
+```
 ---
 
 ## Q6. What is the difference between a default constructor and a parameterized constructor?
