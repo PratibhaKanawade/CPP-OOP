@@ -68,6 +68,7 @@ Each object will have its own data but share the same methods.
 - Not Suitable for Small Programs – For very small programs, OOP may not be necessary.
 
 - Time-Consuming Development – Proper design and planning are required.
+
 ---
 
 ## 3. What are some commonly used Object-Oriented Programming (OOP) languages?
@@ -88,6 +89,7 @@ Each object will have its own data but share the same methods.
 - Inheritance
 - Polymorphism
 - Abstraction
+
 ---
 
 ## 4. List the features of Object-Oriented Programming (OOP).
@@ -101,6 +103,7 @@ Each object will have its own data but share the same methods.
 - Polymorphism – Allows one interface to have multiple implementations, providing flexibility.
 
 - Abstraction – Hides internal implementation details and shows only essential information to the user.
+
 ---
 
 ## 5. Difference between Procedure-Oriented Programming (POP) and Object-Oriented Programming (OOP)
@@ -149,6 +152,7 @@ int main()
 Pratibha scored 90
 
 **Explanation:** Data (name and marks) is separate from the method (display). No objects are created. Any function can access the data directly.
+
 ---
 
 ### Object-Oriented Programming (OOP) – Theory
@@ -209,6 +213,7 @@ int main()
 Pratibha scored 90
 
 **Explaination:**Data and methods are together inside the Student class. Object s1 is created from the class and uses the display() method to access its data. Since the data members are public, they can be accessed directly through the object.
+
 ---
 
 ## 6. Explain the concept of Class with example
@@ -279,6 +284,7 @@ The Student class defines the data (name, age) and the method (takeExam()).
 The object s1 is created from the Student class. It stores the actual data and uses the takeExam() method to perform the action.
 
 **Key Point:**Class = Blueprint, Object = Actual instance created from the blueprint.
+
 ---
 
 ## 7. What is the Syntax of Creating a Class?
@@ -315,6 +321,7 @@ public:
 - string name; and int age; → data members.
 - void displayStudent() → member function used to display student details.
 - }; → ends the class definition. The semicolon is required.
+
 ---
 
 ## 8. Explain the Concept of Object with Example
@@ -429,6 +436,7 @@ Both objects use the same methods defined in the Car class to perform their acti
 
 ### Key Point:
 Class = Blueprint, Object = Actual instance of the class.
+
 ---
 
 ## 9. What is the Syntax of Creating an Object?
@@ -465,6 +473,7 @@ car1.drive();              // Accessing member function
 - s1 is an object of the Student class.
 - car1 is an object of the Car class.
 - The dot (.) operator is used to access public data members and member functions through an object.
+
 ---
 
 ## 10. Difference Between Class and Object in C++
@@ -492,6 +501,7 @@ public:
 };
 
 name and age are data members.
+
 ---
 
 ## Q2. What are member functions?
@@ -503,6 +513,7 @@ void display()
 {
     cout << "Hello";
 }
+
 ---
 
 ## Q3. Can different objects of the same class have different values?
@@ -512,6 +523,7 @@ s1.age = 20;
 s2.age = 21;
 
 Both belong to the same class but contain different data.
+
 ---
 
 ## Q4. How do you access public members of a class?
@@ -519,6 +531,7 @@ Using the dot operator (.).
 
 s1.name;
 s1.display();
+
 ---
 
 ## 11.Types of Access Specifiers
@@ -557,6 +570,7 @@ int main()
 
 ### OUTPUT:
 Pratibha 21
+
 ---
 
 ## 2.Private:
@@ -598,6 +612,7 @@ int main()
 
 ### OUTPUT:
 Marks: 90
+
 ---
 
 ## 3.Protected:
@@ -642,6 +657,7 @@ int main()
 
 ### OUTPUT:
 Marks: 90
+
 ---
 
 ## 12.Explain what is constructor with example and syntax
@@ -758,6 +774,7 @@ Student()
     name = "Pratibha";
     age = 21;
 }
+
 ---
 
  ## 13.List Types of Constructor in OOP
@@ -771,6 +788,7 @@ Types of Constructors in OOP:
 - Shallow Copy
 - Deep Copy
 **Note:** Copy Constructor is available in C++ but not in Java.
+
 ---
 
 ## 14. Explain Default Constructor with Example
@@ -838,6 +856,7 @@ public:
 };
 
 You can create:Student s1;
+
 ---
 
 ## 15.Constructor vs Default Constructor
@@ -909,6 +928,7 @@ When we create the object:Student s1("Pratibha", 21);
 
 "Pratibha" is passed to n.
 21 is passed to a.
+
 ---
 
 ## Q5. Why do we use a parameterized constructor?
@@ -918,6 +938,7 @@ We use a parameterized constructor to initialize objects with different values a
 ### Example:
 Student s1("Pratibha", 21);
 Student s2("Rahul", 22);
+
 ---
 
 ## Q6. What is the difference between a default constructor and a parameterized constructor?
@@ -927,6 +948,7 @@ Student s2("Rahul", 22);
 | - **Takes no parameters**         | - **Takes one or more parameters** |
 | - `Student()`                     | - `Student(string n, int a)`       |
 | - Initializes with default values | - Initializes with given values    |
+
 ---
 
 ## Q7. Can a class have both default and parameterized constructors?
@@ -948,6 +970,7 @@ public:
         cout << "Parameterized Constructor";
     }
 };
+
 ---
 
 ## Q8. What happens if we have only a parameterized constructor and write this?
@@ -957,11 +980,13 @@ Student s1;
 It gives a compilation error because there is no constructor that takes zero arguments.
 If you want:Student s1;
 you need a default constructor.
+
 ---
 
 ## Q9. Can a parameterized constructor return a value?
 ### Answer:
 No. Constructors do not have a return type, not even void.
+
 ---
 
 ## 17. Explain Copy Constructor with Example 
