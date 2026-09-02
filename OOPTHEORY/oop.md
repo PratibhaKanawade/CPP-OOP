@@ -1,29 +1,28 @@
-OOP THEORY
- #Object-Oriented Programming (OOP) – Interview Questions & Answers
+## Object-Oriented Programming (OOP) – Interview Questions & Answers
  ---
-**1. What is Object-Oriented Programming (OOP)? Explain with Example.**
-**Answer:**
+# 1. What is Object-Oriented Programming (OOP)? Explain with Example.#
+** Answer:**
 Object-Oriented Programming (OOP) is a way of writing programs using classes and objects. It represents real-world entities as objects.
 
 A class is a blueprint that contains data (variables) and methods (functions). An object is an instance of a class.
 
 We can create multiple objects from a single class. Each object has its own copy of data but shares the same methods.
 
-OOP is based on four main pillars:
+** OOP is based on four main pillars: **
 
 - Encapsulation
 - Abstraction
 - Inheritance
 - Polymorphism
 
-OOP improves:
+** OOP improves: **
 
 - Code reusability
 - Modularity
 - Security
 - Maintainability
 
-**Example:**
+** Example:**
 Student is a class with data like:
 
 - name
@@ -43,9 +42,9 @@ We can create multiple objects like:
 Each object will have its own data but share the same methods.
 ---
 
-**2. What are the Advantages and Disadvantages of Object-Oriented Programming (OOP)?**
-**Answer:**
-**Advantages of OOP:**
+# 2. What are the Advantages and Disadvantages of Object-Oriented Programming (OOP)?**
+** Answer:**
+** Advantages of OOP:**
 
 - Easy to Manage and Maintain – The program is divided into classes, making it easier to manage, update, and maintain.
 
@@ -57,7 +56,7 @@ Each object will have its own data but share the same methods.
 
 - Security – Achieved using encapsulation, which hides internal data and restricts direct access.
 
-**Disadvantages of OOP:**
+** Disadvantages of OOP:**
 
 - Complex for Beginners – Concepts like class, object, inheritance, and polymorphism can be difficult to understand.
 
@@ -962,8 +961,8 @@ you need a default constructor.
 No. Constructors do not have a return type, not even void.
 ---
 
-**17. Explain Copy Constructor with Example**
-**Answer:**
+** 17. Explain Copy Constructor with Example **
+** Answer: **
 - A copy constructor is a special constructor that creates a new object by copying the data of an existing object.
 
 - Copy Constructor = Creates a new object by copying another object's data.
