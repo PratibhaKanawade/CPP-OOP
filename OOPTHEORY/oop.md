@@ -151,7 +151,7 @@ int main()
 }
 ```
 
-### Output:
+#### Output:
 Pratibha scored 90
 
 **Explanation:** Data (name and marks) is separate from the method (display). No objects are created. Any function can access the data directly.
@@ -215,7 +215,7 @@ int main()
 }
 ```
 
-### Output:
+#### Output:
 Pratibha scored 90
 
 ### Explaination:
@@ -287,7 +287,7 @@ int main()
 }
 ```
 
-### Output:
+#### Output:
 Pratibha is taking the exam
 
 ### Explanation:
@@ -429,7 +429,7 @@ int main()
 }
 ```
 
-### Output:
+#### Output:
 Tesla is driving
 Tesla is running fast
 Rolls Royce is driving
@@ -591,7 +591,7 @@ int main()
     return 0;
 }
 ```
-### OUTPUT:
+#### OUTPUT:
 Pratibha 21
 
 ---
@@ -634,7 +634,7 @@ int main()
     return 0;
 }
 ```
-### OUTPUT:
+#### OUTPUT:
 Marks: 90
 
 ---
@@ -680,7 +680,7 @@ int main()
     return 0;
 }
 ```
-### OUTPUT:
+#### OUTPUT:
 Marks: 90
 
 ---
@@ -738,7 +738,7 @@ int main()
     return 0;
 }
 ```
-### OUTPUT:
+#### OUTPUT:
 ```cpp
 Name: Pratibha
 Age: 21
@@ -873,7 +873,7 @@ int main()
     return 0;
 }
 ```
-### OUTPUT:
+#### OUTPUT:
 ```cpp
 Brand: Unknown
 Speed: 0
@@ -956,7 +956,7 @@ int main()
     return 0;
 }
 ```
-### OUTPUT:
+#### OUTPUT:
 ```cpp
 Name: Pratibha
 Age: 21
@@ -1039,15 +1039,15 @@ No. Constructors do not have a return type, not even void.
 
 - Copy Constructor = Creates a new object by copying another object's data.
 
-### Example:
+#### Real-world analogy:
 Suppose you have a Student record:
+```cpp
 Student s1
 Name = Pratibha
 Age = 21
 Marks = 90
-
+```
 Now you want to create another student object with the same information.
-
 Instead of assigning every value separately, you can copy s1:
 
 s1
@@ -1057,11 +1057,998 @@ Copy Constructor
 s2
 
 Now:
-
+```cpp
 s1 → Pratibha, 21, 90
 s2 → Pratibha, 21, 90
-
+```
 Both objects contain the same data.
+
+### Syntax:
+```cpp
+ClassName(const ClassName &object)
+{
+    // Copy data
+}
+```
+#### Example:
+```cpp
+Student(const Student &s)
+{
+    name = s.name;
+    age = s.age;
+}
+```
+### Code Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student
+{
+public:
+    string name;
+    int age;
+    int marks;
+
+    // Parameterized Constructor
+    Student(string n, int a, int m)
+    {
+        name = n;
+        age = a;
+        marks = m;
+    }
+
+    // Copy Constructor
+    Student(const Student &s)
+    {
+        name = s.name;
+        age = s.age;
+        marks = s.marks;
+    }
+
+    void display()
+    {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+        cout << "Marks: " << marks << endl;
+    }
+};
+
+int main()
+{
+    Student s1("Pratibha", 21, 90);
+
+    Student s2 = s1;
+
+    cout << "Student 1:" << endl;
+    s1.display();
+
+    cout << endl;
+
+    cout << "Student 2:" << endl;
+    s2.display();
+
+    return 0;
+}
+```
+#### OUTPUT:
+```cpp
+Student 1:
+Name: Pratibha
+Age: 21
+Marks: 90
+
+Student 2:
+Name: Pratibha
+Age: 21
+Marks: 90
+```
+### Explanation:
+The parameterized constructor creates s1 with the values Pallavi, 21, and 90.
+The copy constructor then creates s2 by copying all the data from s1.
+
+---
+
+## Q.10 When is a copy constructor called?
+## Answer:
+It is called when a new object is created from an existing object.
+
+#### Example:
+```cpp
+Student s2 = s1;
+```
+
+---
+
+## Q.11 What is the difference between a parameterized constructor and a copy constructor?
+### Answer:
+| Parameterized Constructor             | Copy Constructor                                   |
+| ------------------------------------- | -------------------------------------------------- |
+| **Takes normal values as parameters** | **Takes another object of the same class**         |
+| `Student("Pallavi", 21)`              | `Student(s1)`                                      |
+| Used to initialize with given values  | Used to create an object by copying another object |
+
+---
+
+## Q.12 Can a copy constructor be called explicitly?
+### Answer:
+Yes.
+#### Example:
+```cpp
+Student s2(s1);
+```
+Here, the copy constructor is called to create s2 from s1.
+
+---
+
+## Q.13 What is Deep Copy?
+### Answer:
+Deep copy means creating a completely separate copy of the data in new memory.
+
+### Example:
+```cpp
+Original Object
+s1 → [90]   ← Memory A
+
+Copied Object
+s2 → [90]   ← Memory B
+```
+If we change s2:
+```cpp
+*s2.marks = 50;
+```
+Then:
+```cpp
+s1 → [90]
+s2 → [50]
+```
+Because they have separate memory, changing s2 does NOT change s1.
+- Deep Copy = New Memory + Copy Data
+- Deep copy gives each object its own separate memory.
+
+---
+
+## Q.14 What is shallow copy?
+### Answer:
+Shallow copy copies the value, but if there is dynamically allocated memory, both objects point to the SAME memory.
+### Example:
+```cpp
+s1 ──→ [90] ←── s2
+       Same Memory
+ ```
+ If we change s2 to 50:
+  ```cpp
+ s1 ──→ [50] ←── s2
+ ```
+So, changing one object can affect the other object.
+
+---
+
+## Q.15 Why do we use const in a copy constructor?
+### Answer:
+const ensures that the original object being copied cannot be modified by the copy constructor.
+
+---
+
+## Q.16 Why do we use reference & in a copy constructor?
+### Answer:
+We use a reference so that the existing object is not copied again when being passed to the constructor.
+Without reference, it could lead to another copy-construction process.
+
+---
+
+## 18. Explain the concept of Constructor Overloading with Example
+### Answer:
+- Defination: Constructor overloading means having multiple constructors in the same class with different parameters.
+
+- How it works: The compiler chooses which constructor to call based on the number and/or type of parameters passed during object creation.
+
+- Purpose: Allows creating objects in different ways with different initialization data.
+### Syntax:
+```cpp
+class Student
+{
+public:
+
+    Student()
+    {
+    }
+
+    Student(string name)
+    {
+    }
+
+    Student(string name, int age)
+    {
+    }
+};
+```
+### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student
+{
+public:
+    string name;
+    int age;
+
+    // Constructor 1
+    Student()
+    {
+        name = "Unknown";
+        age = 0;
+    }
+
+    // Constructor 2
+    Student(string n)
+    {
+        name = n;
+        age = 0;
+    }
+
+    // Constructor 3
+    Student(string n, int a)
+    {
+        name = n;
+        age = a;
+    }
+
+    void display()
+    {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+    }
+};
+
+int main()
+{
+    Student s1;
+    Student s2("Pratibha");
+    Student s3("Rahul", 21);
+
+    cout << "Student 1:" << endl;
+    s1.display();
+
+    cout << endl;
+
+    cout << "Student 2:" << endl;
+    s2.display();
+
+    cout << endl;
+
+    cout << "Student 3:" << endl;
+    s3.display();
+
+    return 0;
+}
+```
+#### OUTPUT:
+```cpp
+Student 1:
+Name: Unknown
+Age: 0
+
+Student 2:
+Name: Pratibha
+Age: 0
+
+Student 3:
+Name: Rahul
+Age: 21
+```
+---
+
+### 19. Explain the concept of Destructor with Purpose and Characteristics
+### Answer:
+- Defination:A destructor is a special member function that is automatically called when an object is destroyed.
+- Purpose:It is mainly used to release resources/memory used by the object.
+
+### Characteristics
+- Has the same name as the class
+- Starts with ~
+- Has no return type
+- Takes no parameters
+- Is called automatically
+
+### Syntax
+```cpp
+~ClassName()
+{
+    // cleanup code
+}
+```
+### Example
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student
+{
+public:
+
+    Student()
+    {
+        cout << "Constructor called" << endl;
+    }
+
+    ~Student()
+    {
+        cout << "Destructor called" << endl;
+    }
+};
+
+int main()
+{
+    Student s1;
+
+    cout << "Inside main()" << endl;
+
+    return 0;
+}
+```
+#### OUTPUT
+```cpp
+Constructor called
+Inside main()
+Destructor called
+```
+### Explanation:
+- Student s1;
+ Object s1 is created, so constructor is called.
+ 
+- Then:return 0;
+ main() ends, so object s1 is destroyed.
+---
+
+## 20.Constructor vs Destructor?
+### Answer:
+| Constructor                   | Destructor                         |
+| ----------------------------- | ---------------------------------- |
+| Creates/initializes object    | Cleans up when object is destroyed |
+| Same class name               | Same class name with `~`           |
+| Called when object is created | Called when object is destroyed    |
+| Can have parameters           | Cannot have parameters             |
+
+---
+
+## 21.Explain the use of this pointer with example
+### Answer:
+- Defination:this is a pointer that points to the current object.
+### When to Use:
+1. When data member and parameter have the same name
+##### Example:
+```cpp
+class Student {
+    string name;
+
+public:
+    Student(string name) {
+        this->name = name;
+    }
+};
+```
+2. To clearly refer to the current object's data member
+##### Example:
+```cpp
+this->age   // here age of the current object
+```
+3. To return the current object
+##### Example:
+```cpp
+return *this;  
+```
+- this → address of current object
+- *this → current object itself
+
+4. To pass the current object to another function
+##### Example:
+```cpp
+show(this);   //Sends the address of the current object.
+```
+### Note:
+- this is available in non-static member functions.
+- this cannot be used in static member functions because static functions are not associated with a particular object.
+
+### Syntax
+```cpp
+this->dataMember
+```
+
+### Code Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student
+{
+public:
+    string name;
+    int age;
+
+    Student(string name, int age)
+    {
+        this->name = name;
+        this->age = age;
+    }
+
+    void display()
+    {
+        cout << "Name: " << this->name << endl;
+        cout << "Age: " << this->age << endl;
+    }
+};
+
+int main()
+{
+    Student s1("Pallavi", 21);
+
+    s1.display();
+
+    return 0;
+}
+```
+---
+
+## 22.Explain Static Data Members with example
+### Answer:
+A static data member is a variable that belongs to the class, not to individual objects.
+
+Only one copy of the static variable is created.
+
+All objects of the class share the same variable.
+
+It is declared using the ``` static ``` keyword.
+
+### Syntax
+```cpp
+class ClassName
+{
+public:
+    static int variable;
+};
+
+int ClassName::variable = 10;
+```
+### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student
+{
+public:
+    string name;
+    static string college;
+
+    Student(string n)
+    {
+        name = n;
+    }
+
+    void display()
+    {
+        cout << "Name: " << name << endl;
+        cout << "College: " << college << endl;
+    }
+};
+
+string Student::college = "JSPM RSCOE";
+
+int main()
+{
+    Student s1("Pratibha");
+    Student s2("Rahul");
+
+    s1.display();
+
+    cout << endl;
+
+    s2.display();
+
+    return 0;
+}
+```
+#### OUTPUT:
+```cpp
+Name: Pratibha
+College: JSPM RSCOE
+
+Name: Rahul
+College: JSPM RSCOE
+```
+---
+
+## 23.Explain Static Data functions with example
+### Answer:
+A static member function is a function that belongs to the class, not to a particular object.
+
+It is declared using the static keyword.
+
+It can be called without creating an object.
+
+It is mainly used to work with static data members.
+
+#### Real-Life Example
+- Suppose a company has many employees.
+- The company name is common for all employees.
+- We can store it as a static data member.
+- A function that displays the common company name can be a static member function.
+
+### Syntax
+```cpp
+class ClassName
+{
+public:
+    static void functionName()
+    {
+        // code
+    }
+};
+```
+##### Calling:
+```cpp
+ClassName::functionName();
+```
+### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student
+{
+public:
+    static string college;
+
+    static void displayCollege()
+    {
+        cout << "College: " << college << endl;
+    }
+};
+
+string Student::college = "JSPM RSCOE";
+
+int main()
+{
+    Student::displayCollege();
+
+    return 0;
+}
+```
+#### OUTPUT
+```cpp
+College: JSPM RSCOE
+```
+---
+
+## 24.Explain Friend Function with example 
+### Answer
+A friend function is a function that is not a member of the class.
+
+But it is allowed to access the class's private and protected members.
+
+We declare it using the friend keyword inside the class.
+
+It is defined outside the class.
+
+It is called like a normal function, not using an object with (.)
+
+- Purpose:Friend function = Outside function + special permission to access private/protected data
+
+#### Real-Life Example
+- Imagine a Bank Account.
+- The account balance is private.
+- Normally, an outside function cannot access the private balance.
+- But we can give a particular function special permission using friend.
+
+### Syntax
+```cpp
+class ClassName
+{
+private:
+    int data;
+
+public:
+    friend void functionName(ClassName obj);
+};
+
+void functionName(ClassName obj)
+{
+    // Can access private data
+}
+```
+### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Student
+{
+private:
+    int marks;
+
+public:
+    Student(int m)
+    {
+        marks = m;
+    }
+
+    friend void displayMarks(Student s);
+};
+
+void displayMarks(Student s)
+{
+    cout << "Marks: " << s.marks << endl;
+}
+
+int main()
+{
+    Student s1(90);
+
+    displayMarks(s1);   // s1.displayMarks();  WRONG
+
+    return 0;
+}
+```
+#### OUTPUT 
+```cpp
+Marks: 90
+```
+--- 
+
+## 25.Explain Friend Class with example
+### Answer:
+A friend class is a class that is given permission to access the private and protected members of another class.
+
+We use the friend keyword.
+
+The friend class is declared inside the class whose private data it needs to access.
+
+Friendship allows one class to access another class's private data. 
+
+#### Real-Life Example
+- Consider a Bank Account.
+- BankAccount has private balance.
+- Normally, another class cannot access balance.
+- We can make a BankManager class a friend of BankAccount.
+- Then BankManager can access the private balance.
+
+### Syntax
+```cpp
+class A
+{
+private:
+    int data;
+
+    friend class B;
+};
+
+class B
+{
+public:
+    void display(A obj)
+    {
+        cout << obj.data;
+    }
+};
+```
+- friend class B; gives class B permission.
+- Class B can access private members of class A.
+
+### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class BankAccount
+{
+private:
+    int balance;
+
+public:
+    BankAccount(int b)
+    {
+        balance = b;
+    }
+
+    friend class BankManager;
+};
+
+class BankManager
+{
+public:
+    void displayBalance(BankAccount account)
+    {
+        cout << "Balance: " << account.balance << endl;
+    }
+};
+
+int main()
+{
+    BankAccount account(50000);
+
+    BankManager manager;
+
+    manager.displayBalance(account);
+
+    return 0;
+}
+```
+#### OUTPUT:
+Balance: 50000
+
+---
+
+## 26. Explain Encapsulation with example
+### Answer:
+### Defination
+Encapsulation means wrapping data(variables) and functions together inside a class and controlling access to that data.
+
+We mainly achieve encapsulation using classes and access specifiers like private, public, and protected.
+
+- Encapsulation = Data + Functions + Data Protection
+
+#### Real-Life Example :ATM Machine 
+
+When you use an ATM:
+
+- Your account balance is hidden from direct access.
+- You cannot directly change the balance.
+- You use functions like:
+withdraw()
+deposit()
+checkBalance()
+```cpp
+ATM
+ ├── Private Data
+ │     └── balance
+ │
+ └── Public Functions
+       ├── deposit()
+       ├── withdraw()
+       └── checkBalance()
+```
+### Syntax:
+```cpp
+class ClassName
+{
+private:
+    // Data
+
+public:
+    // Functions to access data
+};
+```
+### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class BankAccount
+{
+private:
+    int balance;
+
+public:
+    void setBalance(int b)
+    {
+        balance = b;
+    }
+
+    int getBalance()
+    {
+        return balance;
+    }
+};
+
+int main()
+{
+    BankAccount account;
+
+    account.setBalance(50000);
+
+    cout << "Balance: " << account.getBalance();
+
+    return 0;
+}
+```
+#### OUTPUT:
+Balance: 50000
+
+---
+
+## Q.18 What is getters ?
+### Answer:
+
+- A getter is a public member function used to access/read private data of a class.
+
+### Synatx
+```cpp
+class ClassName
+{
+private:
+    int data;
+
+public:
+    int getData()
+    {
+        return data;
+    }
+};
+```
+
+
+### Example:
+```cpp
+int getSalary()
+{
+    return salary;
+}
+```
+Here, getSalary() is a getter.
+
+--- 
+
+## Q.19 What is setters ?
+### Answer:
+
+- A public member function used to set/change the value of private data.
+
+### Synatx
+```cpp
+class ClassName
+{
+private:
+    int data;
+
+public:
+    int setData()
+    {
+        return data;
+    }
+};
+```
+
+### Example:
+```cpp
+void setName(string n){
+    name = n;
+}
+```
+Here, setSalary() is a setter.
+
+---
+
+## Q.20 Explain Data Hiding
+
+Data Hiding = Restricting direct access to the internal data of a class.
+
+It is mainly achieved using the private access specifier.
+
+### Example:
+```cpp
+class BankAccount {
+private:
+    int balance;
+
+public:
+    void setBalance(int b) {
+        balance = b;
+    }
+
+    int getBalance() {
+        return balance;
+    }
+};
+```
+
+balance is private → cannot be accessed directly from main().
+setBalance() → changes the value.
+getBalance() → reads the value.
+
+---
+
+## Q.17 What is the difference between encapsulation and data hiding?
+### Answer:
+
+- Encapsulation → wrapping data and functions together.
+- Data hiding → restricting direct access to data.
+
+Data hiding is one important part of encapsulation.
+
+---
+
+## 27.Explain the Concept of Inheritance with Example and Why We Use Inheritance
+### Answer:
+### Defination:
+Inheritance is a feature of OOP where one class(child class) gets the properties and functions of another class(parent class).
+
+#### Why We Use Inheritance:
+
+To reuse code from the parent class without rewriting it.
+To build a relationship between parent and child classes.
+To allow the child class to have its own features while still using parent class functionality.
+
+#### Real-Life Example:
+
+Mother and Child: The child inherits some features like hair color or eye color from the mother, but also has unique traits.
+Vehicle and Car: A vehicle class may have common properties like speed and color. The car class inherits these properties but can also have its own, like brand or airConditioner.
+
+### Syntax:
+```cpp
+class Base {
+    // properties and functions
+};
+
+class Derived : public Base {
+    // additional properties and functions
+};
+```
+
+- Base Class = Base Class is the class whose properties and functions are inherited by another class.
+
+ It is also called the Parent Class or Super Class.
+##### Example:
+```cpp
+class Person {
+public:
+    string name;
+
+    void displayName() {
+        cout << name;
+    }
+};
+```
+Student inherits from Person.
+
+- Derived Clas = Derived Class is the class that inherits properties and functions from another class
+
+It is also called the Child Class or Subclass.
+##### Example:
+```cpp
+class Person {
+public:
+    string name;
+};
+
+class Student : public Person {
+public:
+    int rollNo;
+};
+```
+Student → Derived Class
+Student inherits name from Person.
+Student also has its own rollNo.
+
+---
+
+## 28. List Types of Inheritance
+### Answer:
+Types of Inheritance:
+
+1. Single-Level Inheritance
+2. Multi-Level Inheritance
+3. Hierarchical Inheritance
+4. Hybrid Inheritance
+5. Multiple Inheritance (not supported in Java with classes, supported with interfaces; supported in C++ with classes)
+
+---
+
+## 29.Explain Single Inheritance with example
+### Answer:
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
