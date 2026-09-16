@@ -2037,6 +2037,896 @@ Types of Inheritance:
 
 ## 29.Explain Single Inheritance with example
 ### Answer:
+### Definition:
+Single-level inheritance is a type of inheritance where a child/derived class inherits from a single parent/base class.
+
+The derived class can access the accessible properties and functions of the base class, along with its own properties and functions.
+
+The base class cannot directly access the features that belong only to the derived class.
+
+### Syntax: 
+```cpp
+class ParentClass {
+    // properties and functions
+};
+
+class ChildClass : public ParentClass {
+    // additional properties and functions
+};
+```
+#### Real-Life Example:
+
+- Vehicle and Car: A car is a type of vehicle. The car inherits general vehicle features like color and speed, but also has its own features like brand and model.
+
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+// Parent class
+class Vehicle {
+public:
+    string color = "White";
+
+    void displayVehicle() {
+        cout << "Vehicle color: " << color << endl;
+    }
+};
+
+// Child class
+class Car : public Vehicle {
+public:
+    string brand = "Toyota";
+
+    void displayCar() {
+        cout << "Car brand: " << brand << endl;
+    }
+};
+
+// Main function
+int main() {
+
+    Car myCar;
+
+    // Access parent class method
+    myCar.displayVehicle();
+
+    // Access child class method
+    myCar.displayCar();
+
+    return 0;
+}
+```
+#### OUTPUT:
+```cpp
+Vehicle color: White
+Car brand: Toyota
+```
+#### Explanation:
+- myCar.displayVehicle() → Calls the parent class method, output: Vehicle color: White.
+- myCar.displayCar() → Calls the child class method, output: Car brand: Toyota.
+- The child class (Car) can use all features of the parent class (Vehicle), plus its own features.
+- The parent class cannot access child class features.
+
+---
+
+## 30.Explain Multilevel Inheritance with Example
+### Answer:
+### Definition:
+ Multilevel inheritance is a type of inheritance where there is a hierarchy of classes: grandparent → parent → child.
+
+- The child class can access the properties and methods of both the parent and grandparent classes.
+- The parent class can access only the properties and methods of the grandparent.
+- The grandparent class is independent and cannot access parent or child properties.
+
+### Syntax:
+```cpp
+class Grandparent {
+    // properties and functions
+};
+
+class Parent : public Grandparent {
+    // properties and functions
+};
+
+class Child : public Parent {
+    // properties and functions
+};
+```
+#### Real-Life Example:
+
+- Grandparent → Parent → Child:
+- Grandparent has general features (like heritage).
+- Parent inherits from grandparent and may have additional features (like skills).
+- Child inherits from parent and grandparent, and also has its own unique features (like hobbies).
+
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Person {
+public:
+    string name = "Pratibha";
+
+    void displayPerson() {
+        cout << "Name: " << name << endl;
+    }
+};
+
+class Employee : public Person {
+public:
+    int employeeID = 101;
+
+    void displayEmployee() {
+        cout << "Employee ID: " << employeeID << endl;
+    }
+};
+
+class Manager : public Employee {
+public:
+    string department = "IT";
+
+    void displayManager() {
+        cout << "Department: " << department << endl;
+    }
+};
+
+int main() {
+    Manager m;
+
+    m.displayPerson();
+    m.displayEmployee();
+    m.displayManager();
+
+    return 0;
+}
+```
+#### OUTPUT:
+```cpp
+Name: Pratibha
+Employee ID: 101
+Department: IT
+```
+#### Explanation:
+- The child class object (Manager) can access grandparent (Person) methods, parent (Employee) methods, and its own methods.
+- The parent class object (Employee) can access grandparent (Person) methods and its own methods.
+- The grandparent class object (Person) can access only its own methods.
+- This demonstrates the hierarchical chain of inheritance in multilevel inheritance.
+
+---
+
+## 31.Explain Hierarchical Inheritance with Example
+### Answer:
+### Definition:
+ Hierarchical inheritance is a type of inheritance where multiple child classes inherit from a single parent class.
+
+- The parent class is independent.
+- Each child class is independent.
+- Child classes inherit properties and methods of the parent class, but cannot access each other's properties or methods.
+
+### Syntax:
+```cpp
+class Parent {
+    // properties and functions
+};
+
+class Child1 : public Parent {
+    // properties and functions
+};
+
+class Child2 : public Parent {
+    // properties and functions
+};
+```
+#### Real-Life Example:
+
+- Parent → Vehicle
+- Child1 → Car, Child2 → Bike
+- Both Car and Bike inherit general vehicle features (like color, speed) from Vehicle.
+- Car and Bike do not share properties with each other; they only inherit from the parent.
+
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Person {
+public:
+    string name = "Pratibha";
+
+    void displayPerson() {
+        cout << "Name: " << name << endl;
+    }
+};
+
+class Student : public Person {
+public:
+    int rollNo = 21;
+
+    void displayStudent() {
+        cout << "Roll No: " << rollNo << endl;
+    }
+};
+
+class Teacher : public Person {
+public:
+    string subject = "C++";
+
+    void displayTeacher() {
+        cout << "Subject: " << subject << endl;
+    }
+};
+
+int main() {
+
+    Student s;
+    cout << "Student Details:" << endl;
+    s.displayPerson();
+    s.displayStudent();
+
+    cout << endl;
+
+    Teacher t;
+    cout << "Teacher Details:" << endl;
+    t.displayPerson();
+    t.displayTeacher();
+
+    return 0;
+}
+```
+#### OUTPUT:
+```cpp
+Student Details:
+Name: Pratibha
+Roll No: 21
+
+Teacher Details:
+Name: Pratibha
+Subject: C++
+```
+#### Explanation:
+- The parent class object (Person) can access only its own methods.
+- The child class object (Student) can access parent (Person) methods and its own methods.
+- The child class object (Teacher) can access parent (Person) methods and its own methods.
+- Student and Teacher are separate child classes that inherit from the same parent class.
+- This demonstrates Hierarchical Inheritance, where one parent class is inherited by multiple child classes.
+
+## 32.Explain Hybrid Inheritance with Example
+### Answer:
+### Definition:
+ Hybrid inheritance is a type of inheritance that combines two or more types of inheritance (single-level, multi-level, multiple, hierarchical) in a single program.
+
+ ### Syntax:
+ ```cpp
+ class Parent {
+    // members
+};
+
+class Child1 : public Parent {
+    // members
+};
+
+class Child2 : public Parent {
+    // members
+};
+
+class GrandChild : public Child1 {
+    // members
+};
+ ```
+ #### Real-Life Example:
+ A Person can become an:
+
+- Employee
+- Student
+
+Further, an Employee can become a Manager.
+```cpp
+Hierarchical(this combines):
+             Person
+            /      \
+           ↓        ↓
+      Employee    Student
+          |
+          ↓
+       Manager
+
+
+Multilevel:
+Person → Employee → Manager
+```
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+// Parent/Base class
+class Person {
+public:
+    string name = "Pratibha";
+
+    void displayPerson() {
+        cout << "Name: " << name << endl;
+    }
+};
+
+// Derived class 1
+class Employee : public Person {
+public:
+    int employeeID = 101;
+
+    void displayEmployee() {
+        cout << "Employee ID: " << employeeID << endl;
+    }
+};
+
+// Derived class 2
+class Student : public Person {
+public:
+    int rollNo = 21;
+
+    void displayStudent() {
+        cout << "Roll No: " << rollNo << endl;
+    }
+};
+
+// Derived from Employee
+class Manager : public Employee {
+public:
+    string department = "IT";
+
+    void displayManager() {
+        cout << "Department: " << department << endl;
+    }
+};
+
+int main() {
+
+    // Manager object
+    Manager m;
+
+    cout << "Manager Details:" << endl;
+    m.displayPerson();
+    m.displayEmployee();
+    m.displayManager();
+
+    cout << endl;
+
+    // Student object
+    Student s;
+
+    cout << "Student Details:" << endl;
+    s.displayPerson();
+    s.displayStudent();
+
+    return 0;
+}
+```
+#### OUTPUT:
+```cpp
+Manager Details:
+Name: Pratibha
+Employee ID: 101
+Department: IT
+
+Student Details:
+Name: Pratibha
+Roll No: 21
+```
+#### Explanation:
+- The parent class (Person) contains the common feature name and the function displayPerson().
+- The derived class (Employee) inherits from Person, so it can access displayPerson() and its own displayEmployee() method.
+- The derived class (Student) also inherits from Person, so it can access displayPerson() and its own displayStudent() method.
+- The child class (Manager) inherits from Employee. Therefore, the Manager object can access Person methods, Employee methods, and its own methods.
+- This program combines Hierarchical Inheritance (Person → Employee and Person → Student) and Multilevel Inheritance (Person → Employee → Manager).
+
+---
+
+## 33.Explain Multiple Inheritance with Example
+### Answer:
+### Defination:
+Multiple inheritance is useful when one class needs features from two or more different classes.
+
+### Syntax:
+```cpp
+class DerivedClass : public BaseClass1, public BaseClass2
+{
+    // members of derived class
+};
+```
+
+#### Real-Life Example:
+Suppose:
+
+- Person contains name
+- Employee contains salary
+- Manager needs both
+
+A manager is:
+
+A Person → has a name
+An Employee → has an employee ID and salary
+
+Instead of writing everything again, Manager can inherit from both.
+
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Person
+{
+public:
+    string name = "Pratibha";
+
+    void displayName()
+    {
+        cout << "Name: " << name << endl;
+    }
+};
+
+class Employee
+{
+public:
+    int employeeID = 101;
+
+    void displayEmployeeID()
+    {
+        cout << "Employee ID: " << employeeID << endl;
+    }
+};
+
+class Manager : public Person, public Employee
+{
+public:
+    string department = "IT";
+
+    void displayDepartment()
+    {
+        cout << "Department: " << department << endl;
+    }
+};
+
+int main()
+{
+    Manager m;
+
+    m.displayName();
+    m.displayEmployeeID();
+    m.displayDepartment();
+
+    return 0;
+}
+```
+#### OUTPUT:
+```cpp
+Name: Pratibha
+Employee ID: 101
+Department: IT
+```
+
+---
+
+## Q17. What is ambiguity in multiple inheritance?
+### Answer:
+Ambiguity occurs when two base classes contain members(function) with the same name, and the derived class tries to access that member without specifying which base class member is required.
+
+---
+
+## Q18. How can ambiguity be resolved?
+### Answer:
+Using the scope resolution operator ::
+```cpp
+object.Base1::function();
+object.Base2::function();
+```
+##### Example:
+```cpp
+m.Person::display();
+m.Employee::display();
+```
+---
+
+## Q19. In what order are constructors called in multiple inheritance?
+### Answer:
+If:
+```cpp
+class C : public A, public B
+```
+then:
+```cpp
+A constructor   //call 1st
+      ↓
+B constructor   //call 2nd
+      ↓
+C constructor   //call 3rd
+```
+
+---
+
+
+## 34.Difference between Multiple Inheritance vs Multilevel Inheritance
+### Answer:
+```cpp
+| Multiple Inheritance                     | Multilevel Inheritance                 |
+| ---------------------------------------- | -------------------------------------- |
+| One class inherits from multiple classes | A class inherits through a chain       |
+| More than one parent                     | One parent at each level               |
+| `A + B → C`                              | `A → B → C`                            |
+| Example: `Person + Employee → Manager`   | Example: `Person → Employee → Manager` |
+
+```
+
+## 35.Explain Constructor in Inheritance with example
+### Answer:
+- When inheritance is used, both the base class and derived class can have constructors.
+
+- Constructor in inheritance means understanding how constructors of the base class and derived class are executed when a derived-class object is created.
+
+#### Main rule :
+
+When a derived-class object is created:
+```cpp
+Base Class Constructor
+        ↓
+Derived Class Constructor
+```
+Base constructor executes first, then derived constructor.
+
+#### Why is this needed?
+
+Suppose we have:
+```cpp
+Person
+   ↓
+Employee
+```
+Person has some data that needs initialization.
+
+Employee also has its own data.
+
+When we create an Employee object:
+
+1. First, Person must be initialized.
+2. Then, Employee is initialized.
+
+So C++ automatically follows:
+```cpp
+Person Constructor
+       ↓
+Employee Constructor
+```
+
+#### Real-Life Example
+Think about building a house.
+
+First:
+```cpp
+Foundation
+   ↓
+Walls
+   ↓
+House
+```
+You cannot properly build the walls before the foundation.
+
+Similarly, in inheritance:
+```cpp
+Base Class
+    ↓
+Derived Class
+```
+The base class constructor executes first.
+
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Person
+{
+public:
+    Person()
+    {
+        cout << "Person Constructor" << endl;
+    }
+};
+
+class Employee : public Person
+{
+public:
+    Employee()
+    {
+        cout << "Employee Constructor" << endl;
+    }
+};
+
+int main()
+{
+    Employee e;
+
+    return 0;
+}
+```
+#### OUTPUT:
+```cpp
+Person Constructor
+Employee Constructor
+```
+---
+
+## 36.Explain Parameterized Constructor in Inheritance 
+### Answer:
+### Syntax:
+```cpp
+DerivedConstructor(parameters) : BaseConstructor(arguments)
+{
+    // derived class constructor body
+}
+```
+#### Example:
+```cpp
+Employee(string n, int s) : Person(n)
+{
+    salary = s;
+}
+```
+#### Code Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Person
+{
+public:
+    string name;
+
+    Person(string n)
+    {
+        name = n;
+        cout << "Person Constructor" << endl;
+    }
+};
+
+class Employee : public Person
+{
+public:
+    int salary;
+
+    Employee(string n, int s) : Person(n)
+    {
+        salary = s;
+        cout << "Employee Constructor" << endl;
+    }
+
+    void display()
+    {
+        cout << "Name: " << name << endl;
+        cout << "Salary: " << salary << endl;
+    }
+};
+
+int main()
+{
+    Employee e("Pratibha", 50000);
+
+    e.display();
+
+    return 0;
+}
+```
+#### OUTPUT:
+Person Constructor
+Employee Constructor
+Name: Pratibha
+Salary: 50000
+
+#### Explanation:
+Why do we use : Person(n)?
+
+Suppose Person has:
+
+```cpp
+Person(string n)
+```
+
+Then the base class needs a value for name.
+
+We provide it using:
+
+```cpp
+: Person(n)   //calls base class constructor
+```
+### This is called a constructor initializer list.
+
+So:
+
+```cpp
+Employee("Pratibha", 50000)
+```
+works like:
+```cpp
+Employee receives:
+name = Pratibha
+salary = 50000
+
+        ↓
+
+Person("Pratibha") executes
+
+        ↓
+
+Employee constructor executes
+```
+---
+
+## 37.Explain Parameterized Constructors in Multilevel Inheritance
+### Answer:
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Person
+{
+public:
+    string name;
+
+    Person(string n)
+    {
+        name = n;
+        cout << "Person Constructor" << endl;
+    }
+};
+
+class Employee : public Person
+{
+public:
+    int employeeID;
+
+    Employee(string n, int id) : Person(n)
+    {
+        employeeID = id;
+        cout << "Employee Constructor" << endl;
+    }
+};
+
+class Manager : public Employee
+{
+public:
+    string department;
+
+    Manager(string n, int id, string d)
+        : Employee(n, id)
+    {
+        department = d;
+        cout << "Manager Constructor" << endl;
+    }
+
+    void display()
+    {
+        cout << "Name: " << name << endl;
+        cout << "Employee ID: " << employeeID << endl;
+        cout << "Department: " << department << endl;
+    }
+};
+
+int main()
+{
+    Manager m("Pratibha", 101, "IT");
+
+    m.display();
+
+    return 0;
+}
+```
+#### OUTPUT:
+Person Constructor
+Employee Constructor
+Manager Constructor
+Name: Pratibha
+Employee ID: 101
+Department: IT
+
+#### Explanation:
+When we create:
+
+```cpp
+Manager m("Pratibha", 101, "IT");
+```
+C++ follows:
+
+```cpp
+Manager constructor
+       ↓
+Employee(n, id)
+       ↓
+Person(n)
+```
+
+But execution happens in this order:
+
+```cpp
+Person Constructor
+       ↓
+Employee Constructor
+       ↓
+Manager Constructor
+```
+
+---
+
+## 38.Explain Constructor in Multiple Inheritance
+### Answer:
+When a derived class inherits from multiple base classes, constructors of the base classes are called first, and then the constructor of the derived class is called.
+
+### Syntax:
+```cpp
+class Derived : public Base1, public Base2 {
+public:
+    Derived() : Base1(), Base2() {
+        // Derived class constructor
+    }
+};
+```
+
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Person {
+public:
+    Person() {
+        cout << "Person constructor called" << endl;
+    }
+};
+
+class Employee {
+public:
+    Employee() {
+        cout << "Employee constructor called" << endl;
+    }
+};
+
+class Manager : public Person, public Employee {
+public:
+    Manager() {
+        cout << "Manager constructor called" << endl;
+    }
+};
+
+int main() {
+    Manager m;
+
+    return 0;
+}
+```
+#### OUTPUT:
+Person constructor called
+Employee constructor called
+Manager constructor called
+
+---
+
+## Q.20 Which destructor executes first?
+### Answer:
+The derived-class destructor executes first, followed by the base-class destructor.
+
+Derived → Base
+
+---
+
+## 39.Explain Function Overriding in C++
+### Answer:
+Function Overriding means when a derived class provides its own version of a function that already exists in the base class.
+
+
+
+
+
+
 
 
 
