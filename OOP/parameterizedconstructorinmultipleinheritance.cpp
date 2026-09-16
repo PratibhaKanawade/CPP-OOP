@@ -33,7 +33,8 @@ class manager:public person , public employee{
 
 
 int main(){
-
+  
+    //manager object
     manager m("Pratibha",3232,"ENTC");
 
     cout<<"name:"<<m.name<<endl;
