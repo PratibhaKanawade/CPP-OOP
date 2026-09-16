@@ -2717,10 +2717,12 @@ int main()
 }
 ```
 #### OUTPUT:
+```cpp
 Person Constructor
 Employee Constructor
 Name: Pratibha
 Salary: 50000
+```
 
 #### Explanation:
 Why do we use : Person(n)?
@@ -2738,7 +2740,7 @@ We provide it using:
 ```cpp
 : Person(n)   //calls base class constructor
 ```
-### This is called a constructor initializer list.
+#### This is called a constructor initializer list.
 
 So:
 
@@ -2822,12 +2824,14 @@ int main()
 }
 ```
 #### OUTPUT:
+```cpp
 Person Constructor
 Employee Constructor
 Manager Constructor
 Name: Pratibha
 Employee ID: 101
 Department: IT
+```
 
 #### Explanation:
 When we create:
@@ -2904,9 +2908,11 @@ int main() {
 }
 ```
 #### OUTPUT:
+```cpp
 Person constructor called
 Employee constructor called
 Manager constructor called
+```
 
 ---
 
@@ -2921,6 +2927,7 @@ Derived → Base
 ## 39.Explain Function Overriding in C++
 ### Answer:
 Function Overriding means when a derived class provides its own version of a function that already exists in the base class.
+
 
 
 
