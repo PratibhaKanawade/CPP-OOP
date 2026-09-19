@@ -3624,8 +3624,462 @@ The overriding function can have a different access level.
 ```
 ---
 
-## 48.
+## 48.Explain Pure Virtual Function in C++
+### Answer:
+### Definition
 
+A pure virtual function is a virtual function that has no implementation in the base class and is declared using = 0.
+
+### Syntax:
+```cpp
+class Base {
+public:
+    virtual void display() = 0;
+};
+```
+- virtual → makes it a virtual function.
+
+- void display() → function declaration.
+
+- = 0 → makes it a pure virtual function.
+
+-  = 0 does not mean the function returns zero.
+
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual void sound() = 0;
+};
+
+class Dog : public Animal {
+public:
+    void sound() override {
+        cout << "Dog barks" << endl;
+    }
+};
+
+int main() {
+
+    Dog d;
+
+    d.sound();
+
+    return 0;
+}
+```
+#### OUTPUT:
+Dog barks
+
+#### Explanation:
+Animal contains a pure virtual function sound().
+Because Animal has a pure virtual function, Animal becomes an abstract class.
+So we cannot do:
+Animal a;   // ERROR
+
+Dog inherits from Animal and provides its own implementation of sound().
+
+#### Important Points
+- Pure virtual function is declared using = 0.
+- A class containing at least one pure virtual function becomes an abstract class.
+- We cannot create an object of an abstract class.
+- Derived classes should override the pure virtual function to become a normal/concrete class.
+- It is used for abstraction.
+- It can also be used with runtime polymorphism.
+
+--- 
+
+## Q25.What If Derived Class Does Not Override It?
+### Answer:
+Consider:
+```cpp
+class Shape {
+public:
+    virtual void area() = 0;
+};
+
+class Circle : public Shape {
+};
+```
+Circle has not implemented area().
+
+Therefore, Circle is also an abstract class.
+
+So:
+```cpp
+Circle c;
+```
+is not allowed.
+
+---
+
+
+## 49.Explain Abstract Class in C++
+### Answer:
+### Definition:
+
+- An abstract class is a class that contains at least one pure virtual function.
+
+- It is used to provide a common structure for derived classes and to achieve abstraction.
+
+- We cannot create an object of an abstract class.
+
+### Syntax:
+```cpp
+class Base {
+public:
+    virtual void display() = 0;
+};
+```
+Because display() is a pure virtual function, Base becomes an abstract class.
+
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual void area() = 0;
+};
+
+class Circle : public Shape {
+public:
+    void area() override {
+        cout << "Area of Circle" << endl;
+    }
+};
+
+int main() {
+
+    //shape s;  // cannot create object
+
+    Circle c;
+
+    c.area();
+
+    return 0;
+}
+```
+#### OUTPUT:
+Area of Circle
+
+#### Important Points
+
+- Abstract class contains at least one pure virtual function.
+
+- Cannot create an object of an abstract class.
+
+- We can create a pointer/reference of an abstract class.
+```cpp
+Animal* a;
+```
+- Derived class must override all pure virtual functions to become concrete.
+
+- Abstract classes can have:
+Data members
+Constructors
+Normal member functions
+Pure virtual functions
+
+- nAbstract class is mainly used for abstraction + runtime polymorphism.
+
+---
+
+## 50.Explain Abstraction in OOP
+### Answer:
+### Defination:
+Abstraction means hiding unnecessary implementation details and showing only the essential features to the user.
+
+#### Real-life example
+
+When you use an ATM:
+
+You enter your PIN.
+Select withdrawal.
+Enter the amount.
+Receive money.
+
+You don't need to know the internal banking/database/network operations.
+
+#### In C++
+
+- Abstraction is commonly achieved using:
+1. Abstract classes
+2. Pure virtual functions
+3. Access specifiers
+
+#### Example:
+```cpp
+class Shape {
+public:
+    virtual void area() = 0;
+};
+```
+
+---
+
+## 51.Explain Virtual Destructor in C++
+### Answer:
+### Defination:
+- A virtual destructor is a destructor declared with the virtual keyword in the base class.
+- It ensures that when a derived object is deleted through a base-class pointer, both the derived and base destructors are called.
+
+### Syntax:
+```cpp
+class Base {
+public:
+    virtual ~Base() {
+        // destructor
+    }
+};
+```
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual ~Animal() {
+        cout << "Animal Destructor" << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    ~Dog() {
+        cout << "Dog Destructor" << endl;
+    }
+};
+
+int main() {
+
+    Animal* a = new Dog();
+
+    delete a;
+
+    return 0;
+}
+```
+#### OUTPUT:
+```cpp
+Dog Destructor
+Animal Destructor
+```
+#### Explanation:
+```cpp
+Animal* a = new Dog();
+```
+
+Here:
+a is a base-class pointer.
+The actual object is a Dog object.
+
+Then:
+```cpp
+delete a;
+```
+Because the base destructor is virtual, C++ correctly calls:
+```cpp
+Dog Destructor
+      ↓
+Animal Destructor
+```
+So the complete derived object is properly destroyed.
+
+- If a class is intended to be used as a base class and you delete derived objects through a base pointer, make the base destructor virtual.
+
+---
+
+## 52.Explain Virtual Table (vtable) in C++
+### Answer:
+### Defination:
+- A Virtual Table (vtable) is an internal table created by the C++ compiler for a class that has virtual functions.
+
+- It helps C++ decide at runtime which overridden function should be called.
+
+- In simple words: vtable helps implement runtime polymorphism.
+
+#### Why do we need vtable?
+Consider:
+```cpp
+Animal* a = new Dog();
+a->sound();
+```
+
+The pointer type is Animal*, but the actual object is Dog.
+
+C++ needs to decide:
+```cpp
+Should it call Animal::sound()?
+             OR
+Should it call Dog::sound()?
+```
+The vtable helps make this decision at runtime.
+
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual void sound() {
+        cout << "Animal sound" << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void sound() override {
+        cout << "Dog barks" << endl;
+    }
+};
+
+int main() {
+
+    Animal* a = new Dog();
+
+    a->sound();
+
+    delete a;
+
+    return 0;
+}
+```
+#### OUTPUT:
+Dog barks
+
+#### How vtable works
+
+Conceptually, the compiler creates a table similar to:
+```cpp
+Animal vtable
+----------------
+sound() → Animal::sound()
+
+
+Dog vtable
+----------------
+sound() → Dog::sound()
+```
+When:
+```cpp
+Animal* a = new Dog();
+```
+
+the object is a Dog, so the mechanism associated with the Dog class is used.
+
+Then:
+```cpp
+a->sound();
+```
+
+calls:
+```cpp
+Dog::sound()
+```
+instead of Animal::sound().
+
+## 53.Explain Virtual Pointer (vptr) in C++
+### Answer:
+### Defination:
+- A virtual pointer (vptr) is an internal pointer maintained by many C++ compiler implementations for an object of a class that has virtual functions.
+
+- Simple meaning: vptr → points to vtable → vtable helps find the correct virtual function.
+
+##### How vptr and vtable are connected
+```cpp
+Object
+  │
+  │ vptr
+  ↓
+vtable
+  │
+  ↓
+Virtual Function
+```
+
+For example:
+```cpp
+Dog object
+   │
+   ↓ vptr
+Dog vtable
+   │
+   ↓
+Dog::sound()
+```
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual void sound() {
+        cout << "Animal sound" << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void sound() override {
+        cout << "Dog barks" << endl;
+    }
+};
+
+int main() {
+
+    Animal* a = new Dog();
+
+    a->sound();
+
+    delete a;
+
+    return 0;
+}
+```
+#### OUTPUT:
+Dog barks
+
+#### Explanation:
+Here:
+```cpp
+Animal* a = new Dog();
+```
+- a is an Animal*.
+- The actual object is Dog.
+- Since sound() is virtual, the compiler's virtual-dispatch mechanism is used.
+- In common implementations, the Dog object has a vptr pointing to the Dog vtable.
+- The vtable contains the appropriate entry for Dog::sound().
+
+So:
+```cpp
+a->sound();
+```
+
+calls:
+```cpp
+Dog::sound()
+```
+
+---
+
+## 54.Difference between vptr vs vtable
+### Answer:
+```cpp
+| vptr                           | vtable                                          |
+| ------------------------------ | ----------------------------------------------- |
+| Virtual pointer                | Virtual function table                          |
+| Associated with an object      | Associated with a class/type's virtual dispatch |
+| Points to a vtable             | Contains entries used for virtual dispatch      |
+| Helps locate the correct table | Helps locate the correct virtual function       |
+```
 
 
 
