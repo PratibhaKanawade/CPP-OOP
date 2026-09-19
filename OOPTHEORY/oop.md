@@ -2924,9 +2924,718 @@ Derived → Base
 
 ---
 
-## 39.Explain Function Overriding in C++
+
+## 39.Explain What is Polymorphism in OOP
 ### Answer:
-Function Overriding means when a derived class provides its own version of a function that already exists in the base class.
+#### Defination:
+- Polymorphism is one of the important pillars of Object-Oriented Programming (OOP).
+- The word comes from:
+1. Poly = Many
+2. Morphism = Forms
+3. Meaning: Many forms
+
+- Polymorphism allows the same method to behave differently based on the input or context.
+
+#### Example Concept:
+
+- A Printer class has three methods named print():
+1. Print text
+2. Print images
+3. Print PDF files
+- Same method name print(), but different behavior depending on input.
+
+#### Types of Polymorphism:
+1 Compile-time Polymorphism (function Overloading )
+2.Runtime Polymorphism  (function Overriding)
+
+```cpp
+                 Polymorphism
+                      |
+          ┌───────────┴───────────┐
+          ↓                       ↓
+   Compile-time               Runtime
+          |                       |
+          ↓                       ↓
+Function Overloading       Virtual Function
+Operator Overloading       + Overriding
+```
+
+---
+
+## 40. Explain Compile-time Polymorphism(function Overloading )
+### Answer:
+### Defination:
+- compile-time polymorphism is the ability of a function or operator to behave in different ways, where the function/operator call is decided by the compiler at compile time.
+
+Function overloading is a feature of object-oriented programming in C++.
+
+Function overloading is a type of compile-time polymorphism
+
+It allows a class to have multiple functions with the same name, but the functions must differ in their parameter list:
+
+- Number of parameters
+- Type of parameters
+- Order of parameters
+
+The compiler decides which function to call at compile time.
+
+### Rules of Function Overloading
+
+- Rule 1 — Function name must be the same
+Example:
+```cpp
+void display(int x);
+void display(double x);
+```
+
+- Rule 2 — Parameter list must be different
+
+A. Number of parameters
+```cpp
+void add(int a, int b);
+
+void add(int a, int b, int c);
+```
+
+ B. Type of parameters
+```cpp
+void display(int x);
+
+void display(double x);
+```
+ 
+C. Order of parameters
+```cpp
+void display(int x, double y);
+
+void display(double x, int y);
+```
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Calculator {
+public:
+
+    // Different number of parameters
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Different parameter types
+    double add(double a, double b) {
+        return a + b;
+    }
+};
+
+int main() {
+
+    Calculator c;
+
+    cout << "Two integers: "
+         << c.add(10, 20) << endl;
+
+    cout << "Three integers: "
+         << c.add(10, 20, 30) << endl;
+
+    cout << "Two double values: "
+         << c.add(10.5, 20.5) << endl;
+
+    return 0;
+}
+```
+#### OUTPUT:
+```cpp
+Two integers: 30
+Three integers: 60
+Two double values: 31
+```
+#### Explanation:
+function call is depends on our input
+For:
+
+``` cpp
+c.add(10, 20);
+```
+C++ calls:
+```cpp
+int add(int, int)
+```
+
+``` cpp
+c.add(10, 20,30);
+```
+C++ calls:
+```cpp
+int add(int,int,int)
+```
+
+For:
+```cpp
+c.add(10.5, 20.5);
+```
+C++ calls:
+```cpp
+double add(double, double)
+```
+#### Limitations
+
+1. Return type alone cannot be used
+```cpp
+int add(int, int);
+double add(int, int);  // WRONG
+```
+2. Too many overloaded functions can make code confusing
+
+If there are many functions with very similar parameter combinations, understanding the code can become difficult.
+
+---
+
+## Q21.Is Constructor Overloading Also Possible?
+### Answer:
+Yes.
+#### Example:
+```cpp
+class Student {
+public:
+
+    Student() {
+        cout << "Default Constructor" << endl;
+    }
+
+    Student(int rollNo) {
+        cout << "Roll No: " << rollNo << endl;
+    }
+
+    Student(string name, int rollNo) {
+        cout << "Name: " << name << endl;
+        cout << "Roll No: " << rollNo << endl;
+    }
+};
+```
+#### Explanation:
+```cpp
+Student()
+Student(int)
+Student(string, int)
+```
+This is called Constructor Overloading.
+
+---
+
+## Q22.Can Static Functions Be Overloaded?
+### Answer:
+Yes.
+Static member functions can be overloaded if their parameter lists are different.
+#### Example:
+```cpp
+class Test {
+public:
+
+    static void show(int x) {
+        cout << x << endl;
+    }
+
+    static void show(double x) {
+        cout << x << endl;
+    }
+};
+```
+
+---
+
+## Q23.Can Functions Be Overloaded Using const?
+### Answer:
+Yes.
+There are some advanced cases where member functions can be overloaded based on const qualification.
+
+#### Example:
+```cpp
+class Test {
+public:
+
+    void display() {
+        cout << "Non-const object" << endl;
+    }
+
+    void display() const {
+        cout << "Const object" << endl;
+    }
+};
+```
+
+---
+
+## 41.Explain compile-time polymorphism(Operator Overloading)
+### Answer:
+### Definition:
+Operator overloading is a feature of C++ that allows us to give a special meaning to an existing operator when it is used with objects of a class.
+
+### Syntax:
+```cpp
+returnType operator symbol(parameters) {
+    // function body
+}
+```
+#### Example
+```cpp
+Complex operator+(Complex obj) {
+    // addition logic
+}
+```
+
+#### Real-Life Example
+
+Suppose we have two bank accounts:
+```cpp
+Account 1 → ₹5000
+Account 2 → ₹3000
+```
+
+We want to combine their balances.
+```cpp
+account1 + account2
+```
+### Rules of Operator Overloading
+- Rule 1 — Only existing operators can be overloaded
+```cpp
++
+-
+*
+/
+%
+==
+!=
+<
+>
+++
+--
+```
+- Rule 2 — At least one operand must be a user-defined type
+
+Example:
+```cpp
+obj1 + obj2
+```
+- Rule 3 — Operator precedence cannot be changed
+- Rule 4 — Operator associativity cannot be changed
+
+- Rule 5 — Number of operands cannot be changed
+A unary operator remains unary.
+A binary operator remains binary.
+
+For example:
+```cpp
+++obj     → Unary
+obj1 + obj2 → Binary
+```
+- Rule 6 — Some operators cannot be overloaded
+```cpp
+::
+.
+.*
+?:
+sizeof
+typeid
+``` 
+#### Types of Operator Overloading
+1. Unary Operator
+Works on one operand.
+Examples:
+```cpp
+++obj
+--obj
+-obj
+```
+2. Binary Operator
+Works on two operands.
+Examples:
+```cpp
+obj1 + obj2
+obj1 - obj2
+obj1 * obj2
+obj1 == obj2
+```
+---
+
+## 42.Explain Run-time polymorphism (Function Overriding)
+### Answer:
+- Runtime polymorphism is a type of polymorphism in which the function call is resolved at runtime using virtual functions and function overriding.
+
+- Function Overriding means when a derived class provides its own version of a function that already exists in the base class.
+
+- The function in the derived class overrides the function of the base class.
+
+#### Why Do We Need Function Overriding
+
+- Base class provides a general behavior.
+- Derived class needs different/specific behavior.
+- It allows different derived classes to implement the same function differently.
+- It is an important concept in runtime polymorphism.
+
+#### Real-Life Example
+Suppose we have a base class Animal.
+
+Every animal can make a sound, so we create:
+```cpp
+makeSound()
+```
+But different animals make different sounds:
+```cpp
+Animal
+  |
+  ├── Dog → Bark
+  |
+  └── Cat → Meow
+```
+So Dog and Cat can override makeSound().
+
+### Syntax:
+```cpp
+class Base {
+public:
+    void functionName() {
+        // Base implementation
+    }
+};
+
+class Derived : public Base {
+public:
+    void functionName() {
+        // Derived implementation
+    }
+};
+```
+Both classes have a function with the same name.
+
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Person {
+public:
+    void display() {
+        cout << "I am a Person" << endl;
+    }
+};
+
+class Student : public Person {
+public:
+    void display() {
+        cout << "I am a Student" << endl;
+    }
+};
+
+int main() {
+
+    Student s;
+
+    s.display();
+
+    return 0;
+}
+```
+#### OUTPUT:
+```cpp
+I am a Student
+```
+#### Explanation:
+display() is present in both:
+
+```cpp
+Person  → display()
+Student → display()
+```
+
+When we call:
+
+```cpp
+s.display();
+```
+the Student version is called.
+
+---
+
+## 43. Explain Function Overriding with virtual keyword 
+### Answer:
+For runtime polymorphism, we normally use the virtual keyword in the base class.
+
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Person {
+public:
+    virtual void display() {
+        cout << "I am a Person" << endl;
+    }
+};
+
+class Student : public Person {
+public:
+    void display() override {
+        cout << "I am a Student" << endl;
+    }
+};
+
+int main() {
+
+    Person* p;
+
+    Student s;
+
+    p = &s;
+
+    p->display();
+
+    return 0;
+}
+```
+#### OUTPUT:
+```cpp
+I am a Student
+```
+#### Explanation:
+```cpp
+
+Person* p;
+Student s;
+
+p = &s;
+```
+
+p is a base-class pointer, but it points to a Student object.
+
+Because display() is virtual, C++ calls the Student version at runtime.
+
+```cpp
+Person pointer
+      ↓
+Student object
+      ↓
+Student::display()
+```
+
+###### This is called runtime polymorphism.
+
+---
+
+## 44. Explain override Keyword with example
+### Answer:
+C++ provides the override keyword to clearly tell the compiler:
+
+- "I am overriding a virtual function from the base class."
+
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Person {
+public:
+    virtual void display() {
+        cout << "I am a Person" << endl;
+    }
+};
+
+class Student : public Person {
+public:
+    void display() override {
+        cout << "I am a Student" << endl;
+    }
+};
+
+int main() {
+
+    Person* p;
+
+    Student s;
+
+    p = &s;
+
+    p->display();
+
+    return 0;
+}
+```
+#### OUTPUT:
+```cpp
+I am a Student
+```
+#### Explanation:
+- Why use override?
+
+It helps the compiler detect mistakes.
+
+For example:
+```cpp
+void displays() override
+```
+
+Here the name is wrong (displays instead of display), so the compiler will report an error.
+
+---
+
+## Q.24 Can we call the base class function after overriding it?
+### Answer:
+Yes.
+```cpp
+Base::functionName();
+```
+#### Example:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Person {
+public:
+    virtual void display() {
+        cout << "I am a Person" << endl;
+    }
+};
+
+class Student : public Person {
+public:
+    void display() override {
+        cout << "I am a Student" << endl;
+
+        // Calling Base Class function
+        Person::display();
+    }
+};
+
+int main() {
+
+    Student s;
+
+    s.display();
+
+    return 0;
+}
+```
+#### OUTPUT:
+```cpp
+I am a Student
+I am a Person
+```
+
+--- 
+
+## 45.Important Rules of Function Overriding
+### Answer:
+- Rule 1 — Inheritance is required
+
+There must be a base class and derived class.
+```cpp
+class B { };
+
+class D : public B { };
+```
+- Rule 2 — Function name should be the same
+```cpp
+Base:
+void display()
+
+Derived:
+void display()
+```
+-  Rule 3 — Function signature should match
+
+The parameters should match.
+```cpp
+Base:
+void display(int x)
+
+Derived:
+void display(int x)
+```
+-  Rule 4 — Return type should be compatible
+For normal overriding, the return type should be the same, with limited covariant-return exceptions for pointers/references to related classes.
+
+For placement preparation, remember:
+
+Same function name + same parameters = overriding.
+
+-  Rule 5 - virtual is important for runtime polymorphism
+```cpp
+virtual void display();
+```
+The derived function can then use:
+
+```cpp
+void display() override;
+```
+-  Rule 6 — Access specifier can be different
+Example:
+```cpp
+class Base {
+public:
+    virtual void display() {
+    }
+};
+
+class Derived : public Base {
+private:
+    void display() override {
+    }
+};
+```
+The overriding function can have a different access level.
+
+---
+
+## 46. Difference between  function Overloading vs  function Overriding
+### Answer:
+```cpp
+| Function Overloading                             | Function Overriding                                  |
+| ------------------------------------------------ | ---------------------------------------------------- |
+| Usually happens in same class                    | Happens between base and derived classes             |
+| Function name is same                            | Function name is same                                |
+| Parameters are different                         | Parameters should match                              |
+| Compile-time polymorphism                        | Runtime polymorphism when virtual functions are used |
+| Inheritance is not required                      | Inheritance is required                              |
+| Example: `add(int,int)` and `add(double,double)` | Base `display()` and Derived `display()`             |
+```
+- Overloading → same class + different parameters
+
+- Overriding → parent-child classes + same function
+
+---
+
+## 47.Difference between Compile-Time vs Runtime Polymorphism
+### Answer:
+```cpp
+| Compile-Time Polymorphism                | Runtime Polymorphism          |
+| ---------------------------------------- | ----------------------------- |
+| Decision at compile time                 | Decision at runtime           |
+| Function overloading                     | Virtual function + overriding |
+| Operator overloading                     | Base pointer/reference        |
+| Inheritance not required for overloading | Inheritance required          |
+| Static binding                           | Dynamic binding               |
+
+```
+---
+
+## 48.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
